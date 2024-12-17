@@ -1,135 +1,107 @@
 <!DOCTYPE html>
 <html lang="ko">
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport"
-    content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=1.0, user-scalable=0" />
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=1.0, user-scalable=0"
+  />
 
-<title></title>
-<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
-<link rel="stylesheet" type="text/css" href="./css/common.css">
-<link rel="stylesheet" type="text/css" href="./css/style.css">
+  <title></title>
+  <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon" />
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+  />
+  <link
+    rel="stylesheet"
+    href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css"
+  />
+  <link rel="stylesheet" type="text/css" href="./css/common.css" />
+  <link rel="stylesheet" type="text/css" href="./css/style.css" />
 
-<body>
-    <div id="wrap">
+  <body>
+    <section class="main-slide-container">
+      <div class="swiper containerSwiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div class="video-container">
+              <!-- 첫 번째 비디오 -->
+              <div class="video-item active">
+                <video autoplay muted loop playsinline>
+                  <source src="./mp4/main_video.mp4" type="video/mp4" />
+                </video>
+              </div>
 
-        <div id="header"></div>
+              <!-- 두 번째 비디오 -->
+              <div class="video-item">
+                <video autoplay muted loop playsinline>
+                  <source src="./mp4/main_video.mp4" type="video/mp4" />
+                </video>
+              </div>
 
-        <!-- 내용 -->
-         <div class="main-image" data-speed="clamp(0.5)">
-            <img src="images/braintracer_main_picture.png"/>
+              <!-- 세 번째 비디오 -->
+              <div class="video-item">
+                <video autoplay muted loop playsinline>
+                  <source src="./mp4/main_video.mp4" type="video/mp4" />
+                </video>
+              </div>
 
-            <div class="main-text-wrap">
-                <img src="fonts/main_small_subject.svg" class="main-image-smallText">
-                
-                <div class="main-image-bigText">
-                    <span>Detecting&nbsp;</span>
-                    <span>Changes,&nbsp;</span>
-                    <span>Protecting&nbsp;</span>
-                    <span>You. </span> <br/>
-                    <span>변화를&nbsp; </span>
-                    <span>감지하고,&nbsp; </span>
-                    <span>당신을&nbsp;</span>
-                    <span>보호합니다.</span>
-                       
-                </div>
-
-                <div class="go-homePage">
-                    <a href="./html/main.html">
-
-                        대표홈페이지 바로가기
-                    </a>
-                </div>
-            </div>
-            
-         </div>
-
-        <div id="footer" class="footer" data-speed="clamp(0.8)">
-
-            <div class="com-info-div">
-                <img src="fonts/main_small_subject.svg" class="com-info-logo"/>
-
-                <p class="com-info">
-                    상호명 : 브레인트레이서&nbsp; | &nbsp;대표 : 임재근&nbsp; | &nbsp;이메일 : braintracer@manito.kr <br/>
-                    주소 : 대전광역시 서구 둔지로 60, 4층 457호(둔산동, 35229) 브레인트레이서
-                </p>
-
-                <p class="copyright">
-                    Copyright 2024 브레인트레이서 All Rights Reserved.
-                </p>
-
+              <div class="video-item">
+                <video autoplay muted loop playsinline>
+                  <source src="./mp4/main_video.mp4" type="video/mp4" />
+                </video>
+              </div>
             </div>
 
-            <div class="nav">
-                <div class="section">
-                    <p class="nav-sub">
-                        About us
-                    </p>
+            <div class="slide-text-container">
+              <h3 class="title font-pb">
+                환자분을<br />
+                내 가족처럼 생각합니다
+              </h3>
+              <div class="sub-title-wrap">
+                <h4 class="sub-title font-pb">
+                  환자이송 · 행사의료지원 전문회사
+                </h4>
+              </div>
+              <p class="text font-pr">
+                주식회사 24시응급환자이송센터는 21세기에 적합한 응급의료서비스로
+                환자와 가족 여러분을 먼저 생각하고자 합니다.
+              </p>
 
-                    <div class="line"></div>
-
-                    <p class="nav-text">
-                        <a href="">
-
-                            회사소개
-                        </a>
-                    </p>
-                    <p class="nav-text">
-                        <a href="">
-
-                            연혁
-                        </a>
-                    </p>
+              <div class="video-controller">
+                <div class="progress-bar-container">
+                  <!-- 진행 상태 바 -->
+                  <div class="progress-bar"></div>
                 </div>
-                <div class="section">
-                    <p class="nav-sub">
-                        Services
-                    </p>
 
-                    <div class="line"></div>
-
-                    <p class="nav-text">
-                        <a href="">
-                            BraintracerBraintracer For all
-
-                        </a>
-                    </p>
-                    <p class="nav-text">
-                        <a href="">
-                            BraintracerBraintracer For PTSD
-
-                        </a>
-                    </p>
+                <!-- 비디오 선택 버튼 -->
+                <div class="video-nav">
+                  <button class="nav-btn" data-index="0">01</button>
+                  <button class="nav-btn" data-index="1">02</button>
+                  <button class="nav-btn" data-index="2">03</button>
+                  <button class="nav-btn" data-index="3">04</button>
                 </div>
-                <div class="section">
-                    <p class="nav-sub">
-                        Contact us
-                    </p>
 
-                    <div class="line"></div>
-
-                    <p class="nav-text">
-                        <a href="">
-
-                            문의하기
-                        </a>
-                    </p>
-                    <p class="nav-text">
-                        <a href="">
-
-                            오시는길
-                        </a>
-                    </p>
-                </div>
+                <!-- 재생 버튼과 일시정지 버튼 -->
+                <button class="play-btn">▶️ 재생</button>
+                <button class="pause-btn">⏸ 일시정지</button>
+              </div>
             </div>
+          </div>
+          <div class="swiper-slide">Slide 2</div>
+          <div class="swiper-slide">Slide 3</div>
+          <div class="swiper-slide">Slide 4</div>
+          <div class="swiper-slide">Slide 5</div>
         </div>
-    </div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </section>
 
-        <!-- <div id="top_menu"></div> -->
+    <!-- <div id="top_menu"></div> -->
 
-        <!-- 팝업 -->
-        <!-- 
+    <!-- 팝업 -->
+    <!-- 
     <div class="pop-parent" id="popParent">
         <div class="pop">
             <div class="swiper-container">
@@ -167,30 +139,116 @@
         </div>
     </div> 
     -->
-        <!-- //팝업 -->
-</body>
+    <!-- //팝업 -->
 
-<script src="/js/jquery.js"></script>
-<script src="/js/script.js"></script>
-<script>
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+      var swiper = new Swiper(".containerSwiper", {
+        speed: 500,
+        direction: "vertical",
+        mousewheel: true,
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+      });
+    </script>
+
+    <script>
+      const videos = document.querySelectorAll(".video-item video");
+      const navButtons = document.querySelectorAll(".nav-btn");
+      const playBtn = document.querySelector(".play-btn");
+      const pauseBtn = document.querySelector(".pause-btn");
+      const progressBar = document.querySelector(".progress-bar");
+
+      
+
+      let currentVideoIndex = 0;
+
+      // 모든 비디오 정지 함수
+      function stopAllVideos() {
+        videos.forEach((video) => {
+          video.pause();
+          video.currentTime = 0;
+          video.classList.remove("active");
+        });
+      }
+
+      // 비디오 재생 함수
+      function playVideo(index) {
+        stopAllVideos();
+        videos[index].play();
+        videos[index].classList.add("active");
+        currentVideoIndex = index;
+        updateActiveButton(index);
+
+      }
+
+      // 버튼의 active 클래스 업데이트
+      function updateActiveButton(index) {
+        navButtons.forEach((btn, i) => {
+          btn.classList.toggle("active", i === index);
+        });
+      }
+
+
+
+      // 초기 상태: 첫 번째 비디오 재생
+      playVideo(currentVideoIndex);
+
+      // 비디오 선택 버튼 이벤트
+      navButtons.forEach((btn, index) => {
+        btn.addEventListener("click", () => {
+            
+          playVideo(index);
+        });
+      });
+
+      // 재생 버튼 이벤트
+      playBtn.addEventListener("click", () => {
+        videos[currentVideoIndex].play()
+      });
+
+      // 일시정지 버튼 이벤트
+      pauseBtn.addEventListener("click", () => {
+        videos[currentVideoIndex].pause();
+      });
+
+      // 진행 상태 업데이트
+      videos.forEach((video, index) => {
+        video.addEventListener("timeupdate", () => {
+          if (index === currentVideoIndex) {
+            const progress = (video.currentTime / video.duration) * 100;
+            progressBar.style.width = `${progress}%`;
+          }
+        });
+      });
+    </script>
+  </body>
+
+  <script src="/js/jquery.js"></script>
+  <script src="/js/script.js"></script>
+  <script>
     function nonePopup() {
-        document.getElementById('popParent').style.display = "none";
+      document.getElementById("popParent").style.display = "none";
     }
 
     //popup
     var popupSwiper = new Swiper(".popupSwiper", {
-        autoplay: {
-            delay: 3000,
-        },
-        pagination: {
-            el: '.swiper-pagination',
-        },
-        loop: true,
+      autoplay: {
+        delay: 3000,
+      },
+      pagination: {
+        el: ".swiper-pagination",
+      },
+      loop: true,
     });
 
     $(".pop-parent .btn-toggle").click(function () {
-        $(".pop-parent").toggleClass("active");
+      $(".pop-parent").toggleClass("active");
     });
-</script>
-
+  </script>
 </html>
