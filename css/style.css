@@ -260,18 +260,25 @@
   left: 0;
   width: 100%;
   height: 100%;
-  opacity: 0; /* 기본적으로 숨김 */
+  opacity: 1; /* 기본적으로 숨김 */
   transition: opacity 1s ease; /* 페이드 인 효과 */
 }
 
-.video-container .video-item.active {
-  opacity: 1; /* 보여질 비디오 */
-}
+/* .video-container .video-item.active {
+  opacity: 1;
+} */
 
 .video-container .video-item video {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  opacity: 0;
+}
+.video-container .video-item video.active {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 1;
 }
 
 .swiper-pagination-vertical.swiper-pagination-bullets, .swiper-vertical>.swiper-pagination-bullets {
@@ -351,14 +358,12 @@
 
   margin-top: 40px;
 }
-
-
 /* 비디오 컨트롤러 스타일 */
 .video-controller {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 15px;
+  gap: 16px;
   color: #fff;
   z-index: 10;
 
@@ -370,23 +375,34 @@
 /* 비디오 선택 버튼 */
 .video-nav {
   display: flex;
-  gap: 10px;
+  gap: 16px;
 }
 
-.nav-btn {
+.btn-wrap {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.btn-wrap .nav-btn {
   background: none;
   border: none;
   color: #fff;
+  opacity: 0.6;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 12px;
+}
+.btn-wrap .nav-btn.active {
+  text-decoration: underline;
+  opacity: 1;
 }
 
 /* 진행 상태 바 */
-.progress-bar-container {
-  width: 150px;
-  height: 5px;
-  background: rgba(255, 255, 255, 0.3);
-  border-radius: 5px;
+.progress-bar-container.active {
+  width: 50px;
+  height: 1px;
+  background-color: #FFF;
+  opacity: 0.6;
   overflow: hidden;
 }
 
@@ -397,10 +413,198 @@
 }
 
 /* 재생/일시정지 버튼 */
-.play-pause-btn {
-  background: none;
-  border: none;
+.play-btn i{
   color: #fff;
-  font-size: 18px;
+  font-size: 14px;
   cursor: pointer;
+}
+.pause-btn i{
+  color: #fff;
+  font-size: 14px;
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+
+.main-slide-container .containerSwiper .swiper-wrapper .swiper-slide .main-flex-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 140px;
+  gap: 180px;
+  position: relative;
+}
+
+.main-slide-container .containerSwiper .swiper-wrapper .swiper-slide .main-flex-container .circle-deco {
+  position: absolute;
+  top: -51px;
+  right: -41px;
+
+  width: 311px;
+  height: 307px;
+
+  animation: rotate_image 6s linear infinite;transform-origin: 50% 50%;
+}
+.main-slide-container .containerSwiper .swiper-wrapper .swiper-slide.overview {
+  position: relative;
+}
+
+.main-slide-container .containerSwiper .swiper-wrapper .swiper-slide .circle-deco-2 {
+  position: absolute;
+  bottom: -170px;
+  left: -50px;
+
+  width: 311px;
+  height: 307px;
+
+  animation: rotate_image 6s linear infinite;transform-origin: 50% 50%;
+}
+.main-slide-container .containerSwiper .swiper-wrapper .swiper-slide .main-flex-container .main-text-wrap .sub-title {
+  font-size: 18px;
+  line-height: 1.5;
+  letter-spacing: 3.6px;
+  text-align: left;
+  color: #5fc700;
+}
+.main-slide-container .containerSwiper .swiper-wrapper .swiper-slide .main-flex-container .main-text-wrap .title {
+  font-size: 48px;
+  line-height: 1.4;
+  text-align: left;
+  color: #202020;
+
+  margin-top: 16px;
+}
+.main-slide-container .containerSwiper .swiper-wrapper .swiper-slide .main-flex-container .main-text-wrap .text {
+  font-size: 18px;
+  line-height: 1.67;
+  color: #707070;
+
+  margin-top: 39px;
+}
+.main-slide-container .containerSwiper .swiper-wrapper .swiper-slide .main-flex-container .main-text-wrap .main-btn-wrap{
+  position: relative;
+  width: fit-content;
+  margin-top: 56px;
+}
+.main-slide-container .containerSwiper .swiper-wrapper .swiper-slide .main-flex-container .main-text-wrap .main-btn-wrap .deco{
+  position: absolute;
+  width: 80px;
+  height: 80px;
+
+  top: -8px;
+  left: -8px;
+}
+.main-slide-container .containerSwiper .swiper-wrapper .swiper-slide .main-flex-container .main-text-wrap .main-btn-wrap .main-text-wrap-btn {
+  width: 64px;
+  height: 64px;
+  background-color: #5fc700;
+  border-radius: 50%;
+}
+.main-slide-container .containerSwiper .swiper-wrapper .swiper-slide .main-flex-container .main-text-wrap .main-btn-wrap .main-text-wrap-btn i {
+  font-size: 24px;
+  color: #FFF;
+}
+.main-slide-container .containerSwiper .swiper-wrapper .swiper-slide .main-flex-container .main-work-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 32px;
+  max-width: 760px;
+  max-height: 840px;
+  overflow-y: scroll;
+
+
+}
+.main-slide-container .containerSwiper .swiper-wrapper .swiper-slide .main-flex-container .main-work-wrap::-webkit-scrollbar {
+  display: none;
+}
+.main-slide-container .containerSwiper .swiper-wrapper .swiper-slide .main-flex-container .main-work-wrap a {
+  max-width: 360px;
+  width: 100%;
+  max-height: 481px;
+  height: 100%;
+}
+.main-slide-container .containerSwiper .swiper-wrapper .swiper-slide .main-flex-container .main-work-wrap a {
+  position: relative;
+
+}
+.main-slide-container .containerSwiper .swiper-wrapper .swiper-slide .main-flex-container .main-work-wrap a.even {
+  position: relative;
+  padding-top: 40px;
+  max-height: 521px;
+  height: 100%;
+}
+.main-slide-container .containerSwiper .swiper-wrapper .swiper-slide .main-flex-container .main-work-wrap a .work-img-wrap{
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.main-slide-container .containerSwiper .swiper-wrapper .swiper-slide .main-flex-container .main-work-wrap a .work-img-wrap::after{
+  display: block;
+  clear: both;
+  content: "";
+
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
+  height: 0%;
+  background-color: #599224;
+  opacity: 0.65;
+  transition: height 0.5s ease;
+}
+.main-slide-container .containerSwiper .swiper-wrapper .swiper-slide .main-flex-container .main-work-wrap a .work-img-wrap.hover::after{
+  height: 100%;
+}
+
+.main-slide-container .containerSwiper .swiper-wrapper .swiper-slide .main-flex-container .main-work-wrap a .work-img-wrap.even::after{
+  display: block;
+  clear: both;
+  content: "";
+
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
+  height: 0%;
+  background-color: #599224;
+  opacity: 0.65;
+  transition: height 0.5s ease;
+}
+.main-slide-container .containerSwiper .swiper-wrapper .swiper-slide .main-flex-container .main-work-wrap a .work-img-wrap.hover.even::after{
+  height: 100%;
+}
+
+.main-slide-container .containerSwiper .swiper-wrapper .swiper-slide .main-flex-container .main-work-wrap a .text-wrap {
+  position: absolute;
+  left: 40px;
+  bottom: 40px;
+  z-index: 50;
+}
+.main-slide-container .containerSwiper .swiper-wrapper .swiper-slide .main-flex-container .main-work-wrap a .text-wrap i {
+  font-size: 24px;
+  line-height: 1.1;
+  letter-spacing: -0.6px;
+  color: #FFF;
+  margin-top: 40px;
+}
+.main-slide-container .containerSwiper .swiper-wrapper .swiper-slide .main-flex-container .main-work-wrap a .text-wrap .text {
+  font-size: 17px;
+  line-height: 1.53;
+  color: #FFF;
+  text-align: left;
+  margin-top: 30px;
+}
+.main-slide-container .containerSwiper .swiper-wrapper .swiper-slide .main-flex-container .main-work-wrap a .text-wrap .title {
+  font-size: 32px;
+  line-height: 1.21;
+  color: #fff;
+}
+
+.rotate-active {animation: rotate_image 6s linear infinite;transform-origin: 50% 50%;}
+
+@keyframes rotate_image{
+    100% {
+        transform: rotate(360deg);
+    }
 }

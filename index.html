@@ -70,26 +70,120 @@
               </p>
 
               <div class="video-controller">
-                <div class="progress-bar-container">
-                  <!-- 진행 상태 바 -->
-                  <div class="progress-bar"></div>
-                </div>
-
                 <!-- 비디오 선택 버튼 -->
                 <div class="video-nav">
-                  <button class="nav-btn" data-index="0">01</button>
-                  <button class="nav-btn" data-index="1">02</button>
-                  <button class="nav-btn" data-index="2">03</button>
-                  <button class="nav-btn" data-index="3">04</button>
+                  <div class="btn-wrap active">
+                    <button class="nav-btn" data-index="0">01</button>
+                    <div class="progress-bar-container">
+                      <div class="progress-bar"></div>
+                    </div>
+                  </div>
+                  <div class="btn-wrap">
+                    <button class="nav-btn" data-index="1">02</button>
+                    <div class="progress-bar-container">
+                      <div class="progress-bar"></div>
+                    </div>
+                  </div>
+                  <div class="btn-wrap">
+                    <button class="nav-btn" data-index="2">03</button>
+                    <div class="progress-bar-container">
+                      <div class="progress-bar"></div>
+                    </div>
+                  </div>
+                  <div class="btn-wrap">
+                    <button class="nav-btn" data-index="3">04</button>
+                    <div class="progress-bar-container">
+                      <div class="progress-bar"></div>
+                    </div>
+                  </div>
                 </div>
 
                 <!-- 재생 버튼과 일시정지 버튼 -->
-                <button class="play-btn">▶️ 재생</button>
-                <button class="pause-btn">⏸ 일시정지</button>
+                <button class="play-btn"><i class="xi-play"></i></button>
+                <button class="pause-btn"><i class="xi-pause"></i></button>
               </div>
             </div>
           </div>
-          <div class="swiper-slide">Slide 2</div>
+          <div class="swiper-slide overview">
+            <div class="main-flex-container">
+              <img src="./images/circle-decoration.png" class="circle-deco">
+              <div class="main-text-wrap">
+                <h4 class="sub-title font-pm">OVERVIEW</h4>
+                <h3 class="title font-pb">
+                  신속, 정확, 안전을 책임지는<br />
+                  주식회사 24시응급환자이송센터
+                </h3>
+                <p class="text font-pr">
+                  주식회사 24시응급환자이송센터는 21세기에 적합한
+                  응급의료서비스로 <br />
+                  환자와 가족 여러분의 성원에 보답하고자 합니다.
+                </p>
+
+                <div class="main-btn-wrap">
+                  <button class="main-text-wrap-btn">
+                    <i class="xi-plus"></i>
+                  </button>
+                  <img src="./images/btn_decoration.png" class="deco" />
+                </div>
+              </div>
+              <div class="main-work-wrap">
+                <a href="">
+                  <div class="work-img-wrap">
+                    <img src="./images/work01.png" alt="센터소개" />
+                    <div class="text-wrap">
+                      <h3 class="title font-pb">센터소개</h3>
+                      <p class="text font-pl">
+                        환자는 언제든지, 어디서나 나타납니다. <br />
+                        응급상황에 대비해 항시 준비하고 있습니다.
+                      </p>
+                      <i class="xi-long-arrow-right"></i>
+                    </div>
+                  </div>
+                </a>
+                <a href="" class="even">
+                  <div class="work-img-wrap even">
+                    <img src="./images/work02.png" alt="주요업무" />
+                  </div>
+                  <div class="text-wrap">
+                    <h3 class="title font-pb">주요업무</h3>
+                    <p class="text font-pl">
+                      일반적인 환자이송, 행사지원 등 <br>
+                      모든 상황에 대비합니다.
+                    </p>
+                    <i class="xi-long-arrow-right"></i>
+                  </div>
+                </a>
+                <a href="">
+                  <div class="work-img-wrap">
+                    <img src="./images/work03.png" alt="행사지원원" />
+                  </div>
+                  <div class="text-wrap">
+                    <h3 class="title font-pb">행사지원</h3>
+                    <p class="text font-pl">
+                      많은 인원이 참여하는 모든 행사에 <br>
+                      인명피해가 없도록 노력합니다.
+                    </p>
+                    <i class="xi-long-arrow-right"></i>
+                  </div>
+                </a>
+                <a href="" class="even">
+                  <div class="work-img-wrap even">
+                    <img src="./images/work04.png" alt="" />
+                  </div>
+                  <div class="text-wrap">
+                    <h3 class="title font-pb">자주묻는 질문</h3>
+                    <p class="text font-pl">
+                      주식회사 24시응급환자이송센터에 <br>
+                      대해 궁금하신가요? <br>
+                      자주묻는 질문을 확인해보세요.
+                    </p>
+                    <i class="xi-long-arrow-right"></i>
+                  </div>
+                </a>
+              </div>
+            </div>
+            <img src="./images/circle-decoration.png" class="circle-deco-2">
+          </div>
           <div class="swiper-slide">Slide 3</div>
           <div class="swiper-slide">Slide 4</div>
           <div class="swiper-slide">Slide 5</div>
@@ -98,7 +192,7 @@
       </div>
     </section>
 
-    <!-- <div id="top_menu"></div> -->
+    <div id="top_menu"></div>
 
     <!-- 팝업 -->
     <!-- 
@@ -162,9 +256,10 @@
       const navButtons = document.querySelectorAll(".nav-btn");
       const playBtn = document.querySelector(".play-btn");
       const pauseBtn = document.querySelector(".pause-btn");
+      const progressBarContainer = document.querySelectorAll(
+        ".progress-bar-container"
+      );
       const progressBar = document.querySelector(".progress-bar");
-
-      
 
       let currentVideoIndex = 0;
 
@@ -184,7 +279,6 @@
         videos[index].classList.add("active");
         currentVideoIndex = index;
         updateActiveButton(index);
-
       }
 
       // 버튼의 active 클래스 업데이트
@@ -192,9 +286,10 @@
         navButtons.forEach((btn, i) => {
           btn.classList.toggle("active", i === index);
         });
+        progressBarContainer.forEach((bar, i) => {
+          bar.classList.toggle("active", i === index);
+        });
       }
-
-
 
       // 초기 상태: 첫 번째 비디오 재생
       playVideo(currentVideoIndex);
@@ -202,14 +297,13 @@
       // 비디오 선택 버튼 이벤트
       navButtons.forEach((btn, index) => {
         btn.addEventListener("click", () => {
-            
           playVideo(index);
         });
       });
 
       // 재생 버튼 이벤트
       playBtn.addEventListener("click", () => {
-        videos[currentVideoIndex].play()
+        videos[currentVideoIndex].play();
       });
 
       // 일시정지 버튼 이벤트
@@ -227,10 +321,37 @@
         });
       });
     </script>
+
+    <script>
+      // 무한회전
+      const rotateObj = document.querySelector(
+        ".main-slide-container .containerSwiper .swiper-wrapper .swiper-slide .main-flex-container .main-text-wrap .main-btn-wrap .deco"
+      );
+
+      rotateObj.addEventListener("mouseover", () => {
+        rotateObj.classList.add("rotate-active");
+      });
+      rotateObj.addEventListener("mouseout", () => {
+        rotateObj.classList.remove("rotate-active");
+      });
+
+
+
+      const works = document.querySelectorAll(".main-slide-container .containerSwiper .swiper-wrapper .swiper-slide .main-flex-container .main-work-wrap a .work-img-wrap");
+
+      works.forEach((el) => {
+        el.addEventListener("mouseover", () => {
+          el.classList.add("hover");
+        })
+        el.addEventListener("mouseout", () => {
+          el.classList.remove("hover");
+        })
+      })
+    </script>
   </body>
 
-  <script src="/js/jquery.js"></script>
-  <script src="/js/script.js"></script>
+  <script src="./js/jquery.js"></script>
+  <script src="./js/script.js"></script>
   <script>
     function nonePopup() {
       document.getElementById("popParent").style.display = "none";
