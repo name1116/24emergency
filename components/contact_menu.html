@@ -1,0 +1,165 @@
+<style>
+  .sns-open {
+    position: fixed;
+    bottom: 112px;
+    right: 48px;
+    width: 48px;
+    height: 48px;
+    border-radius: 100%;
+    background-color: #707070;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.16);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+    transition: 0.3s;
+    z-index: 200;
+  }
+
+  .sns-open i {
+    color: #fff;
+    font-size: 20px;
+  }
+  .sns-btn-wrap.active {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 16px;
+    position: fixed;
+    bottom: 112px;
+    right: 48px;
+    z-index: 500;
+  }
+
+  .sns-btn-wrap.active .sns-btn {
+    position: relative; /* 버튼 위치 고정 */
+    width: 48px;
+    height: 48px;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+    z-index: 500;
+    transition: all 0.3s ease-in-out;
+  }
+  .sns-btn-wrap.active .sns-btn.sms {
+    background-color: #599224;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.16);
+  }
+  .sns-btn-wrap.active .sns-btn.kakao {
+    background-color: #fe0;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.16);
+  }
+
+  .sns-btn-wrap.active .sns-btn.sms i {
+    font-size: 24px;
+    color: #fff;
+  }
+  .sns-btn-wrap.active .sns-btn.kakao i {
+    font-size: 26px;
+    color: #2b1718;
+  }
+
+  .sns-btn-wrap.active .sns-btn .sns-btn-text {
+    display: none;
+  }
+
+  .sns-btn-wrap.disable {
+    display: none;
+  }
+</style>
+
+<button class="sns-open">
+  <i class="xi-bars"></i>
+</button>
+
+<div id="sns-btn-wrap" class="sns-btn-wrap disable">
+  <a href="https://pf.kakao.com/_SxoqXG" target="_blank">
+    <button class="sns-btn sms">
+      <i class="xi-message-o"></i>
+    </button>
+  </a>
+  <a href="https://booking.naver.com/booking/13/bizes/1063020" target="_blank">
+    <button class="sns-btn kakao">
+      <i class="xi-kakaotalk"></i>
+    </button>
+  </a>
+  <!-- <div class="we-qr-img">
+        <div class="title font-pb">WeChat 연결하기</div>
+    
+        <div class="img-wrap">
+          <img src="./images/qr/wechat.png" alt="wechat qr" />
+        </div>
+    
+        <div class="text-wrap">
+          <h4 class="text-title font-pb">BRILLER CLINIC</h4>
+          <p class="text font-pr">
+            카메라로 QR코드를 인식하면<br />
+            위챗으로 연결 됩니다.
+          </p>
+        </div>
+    
+        <button class="we-close font-pm">확인</button>
+      </div>
+    
+      <div class="line-qr-img">
+        <div class="title font-pb">Line 연결하기</div>
+    
+        <div class="img-wrap">
+          <img src="./images/qr/line.png" alt="line qr" />
+        </div>
+    
+        <div class="text-wrap">
+          <h4 class="text-title font-pb">BRILLER CLINIC</h4>
+          <p class="text font-pr">
+            카메라로 QR코드를 인식하면<br />
+            위챗으로 연결 됩니다.
+          </p>
+        </div>
+    
+        <button class="line-close font-pm">확인</button>
+      </div> -->
+</div>
+
+<script>
+  const toggleBtn = document.querySelector(".sns-open");
+  const toggleBtnIcon = document.querySelector(".sns-open i");
+
+  window.addEventListener("load", () => {
+    if (window.innerWidth <= 767) {
+      toggleBtn.style.bottom = "128px";
+    } else {
+      toggleBtn.style.bottom = "112px";
+    }
+  });
+
+  toggleBtn.addEventListener("click", () => {
+    if (toggleBtnIcon.className === "xi-bars") {
+      if (window.innerWidth <= 767) {
+        toggleBtn.style.bottom = "448px";
+      } else {
+        toggleBtn.style.bottom = "240px";
+      }
+
+      toggleBtnIcon.className = "xi-close";
+    } else {
+      if (window.innerWidth <= 767) {
+        toggleBtn.style.bottom = "128px";
+      } else {
+        toggleBtn.style.bottom = "112px";
+      }
+      toggleBtnIcon.className = "xi-bars";
+    }
+
+    const btns = document.querySelector(".sns-btn-wrap");
+
+    if (btns.classList.contains("disable")) {
+      btns.classList.remove("disable");
+      btns.classList.add("active");
+    } else {
+      btns.classList.remove("active");
+      btns.classList.add("disable");
+    }
+  });
+</script>

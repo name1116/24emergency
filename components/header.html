@@ -1,7 +1,7 @@
 <header class="header">
   <div class="header-top">
     <div class="com-img-wrap">
-      <a href="">
+      <a href="../index.html">
         <img
           src="../images/logo_wrap/logo_not_hover.png"
           alt="주식회사 24시응급환자이송센터"
@@ -15,7 +15,7 @@
           <button class="nav font-pm">회사소개</button>
         </div>
         <div class="nav-sub-wrap">
-          <button class="nav-sub font-pl">인사말</button>
+          <button class="nav-sub font-pl"><a href="../about_sub01.html" class="font-pl">인사말</a></button>
           <button class="nav-sub font-pl">조직도</button>
         </div>
       </div>
@@ -57,13 +57,91 @@
 </header>
 
 <script>
-  const header = document.getElementById("header");
-  const logo = document.querySelector(".header .header-top .com-img-wrap img");
+  if (!location.pathname.endsWith("index.html") || !location.pathname === "/") {
+    console.log("active");
 
-  header.addEventListener("mouseover", () => {
-    logo.src = "../images/logo_wrap/logo_hover.png";
-  });
-  header.addEventListener("mouseout", () => {
-    logo.src = "../images/logo_wrap/logo_not_hover.png";
-  });
+    const header = document.getElementById("header");
+    const logo = document.querySelector(
+      ".header .header-top .com-img-wrap img"
+    );
+
+    header.addEventListener("mouseover", () => {
+      logo.src = "../images/logo_wrap/logo_hover.png";
+    });
+    header.addEventListener("mouseout", () => {
+      logo.src = "../images/logo_wrap/logo_not_hover.png";
+    });
+  }
+</script>
+
+<script>
+  if (location.pathname.endsWith("index.html") || location.pathname === "/") {
+    function headerChange() {
+      const mainSlide = document.querySelector(
+        ".main-slide-container .swiper.containerSwiper .swiper-wrapper .swiper-slide.swiper-slide-active"
+      );
+      const textElements = document.querySelectorAll(
+        ".header .header-top .header-nav-wrap .nav-wrap .nav"
+      );
+      const headerLogo = document.querySelector(
+        ".header .header-top .com-img-wrap a img"
+      );
+      const callContainer = document.querySelector(
+        ".header .header-top .call-wrap"
+      );
+      const callIcon = document.querySelector(
+        ".header .header-top .call-wrap a i"
+      );
+      const callText = document.querySelector(
+        ".header .header-top .call-wrap a .num"
+      );
+      const header = document.getElementById("header");
+      const headerBody = document.querySelector(".header-top");
+
+      if (mainSlide) {
+        const aria = mainSlide.getAttribute("aria-label");
+
+
+        if (aria === "1 / 5") {
+            console.log("1");
+          textElements.forEach((el) => {
+            el.style.color = ""; // 기본 색상으로 되돌리기
+          });
+          headerLogo.src = "../images/logo_wrap/logo_not_hover.png";
+          callContainer.style.borderColor = "";
+          callIcon.style.color = "";
+          callText.style.color = "";
+
+          header.addEventListener("mouseover", () => {
+            headerLogo.src = "../images/logo_wrap/logo_hover.png";
+          });
+          header.addEventListener("mouseout", () => {
+            headerLogo.src = "../images/logo_wrap/logo_not_hover.png";
+          });
+        }
+        else {
+          textElements.forEach((el) => {
+            el.style.color = "#202020"; // 특정 색상으로 변경
+          });
+          headerLogo.src = "../images/logo_wrap/logo_hover.png";
+          callContainer.style.borderColor = "#5fc700";
+          callIcon.style.color = "#202020";
+          callText.style.color = "#202020";
+
+          header.addEventListener("mouseover", () => {
+            headerLogo.src = "../images/logo_wrap/logo_hover.png";
+          });
+          header.addEventListener("mouseout", () => {
+            headerLogo.src = "../images/logo_wrap/logo_hover.png";
+          });
+        }
+
+
+      }
+    }
+
+    // 이벤트 리스너에 올바른 콜백 함수 전달
+    window.addEventListener("wheel", headerChange);
+    window.addEventListener("load", headerChange);
+  }
 </script>

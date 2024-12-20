@@ -6,6 +6,7 @@ $(document).ready(function(){
 
     $('#pagination').load('../components/pagination.html');
     $('#top_menu').load('../components/top_menu.html');
+    $('#contact_menu').load('../components/contact_menu.html');
 })
 
 /*smooth-scroll*/
