@@ -23,6 +23,7 @@
   <body>
     <section class="main-slide-container">
       <div class="swiper containerSwiper">
+        <div id="header"></div>
         <div class="swiper-wrapper">
           <div class="swiper-slide">
             <div class="video-container">
@@ -233,7 +234,7 @@
               </div>
             </div>
           </div>
-                    <!-- 내일 해야함 -->
+          <!-- 내일 해야함 -->
           <div class="swiper-slide gallery">
             <div class="gallery-info-wrap">
               <img src="./images/circle-decoration.png" class="circle-deco" />
@@ -250,10 +251,12 @@
               </div>
               <div class="btn-container">
                 <div class="list-btn-wrap">
-                  <button class="list first">
+                  <button class="list first swiper-button-prev">
                     <i class="xi-angle-left"></i>
                   </button>
-                  <button class="list"><i class="xi-angle-right"></i></button>
+                  <button class="list swiper-button-next">
+                    <i class="xi-angle-right"></i>
+                  </button>
                 </div>
 
                 <div class="main-btn-wrap">
@@ -266,23 +269,134 @@
             </div>
 
             <div class="slide-gallery">
-              <div class="underline">
-                <!-- 미정 -->
+              <div class="swiper gallerySwiper">
+                <div class="swiper-wrapper gallerySwiper-wrapper">
+                  <div class="swiper-slide article">
+                    <div class="img-wrap">
+                      <img src="./images/article/01.png" alt="01" />
+                    </div>
+                    <div class="text-wrap">
+                      <h3 class="title font-pb">2017 친환경운전왕 선발대회</h3>
+                      <a href="">
+                        <button class="text-wrap-btn">
+                          <p class="text font-pb">more</p>
+                          <i class="xi-plus-min"></i>
+                        </button>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="swiper-slide article">
+                    <div class="img-wrap">
+                      <img src="./images/article/02.png" alt="02" />
+                    </div>
+                    <div class="text-wrap">
+                      <h3 class="title font-pb">2015년 9/17~20일 미베 베이비엑스포</h3>
+                      <a href="">
+                        <button class="text-wrap-btn">
+                          <p class="text font-pb">more</p>
+                          <i class="xi-plus-min"></i>
+                        </button>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="swiper-slide article">
+                    <div class="img-wrap">
+                      <img src="./images/article/03.png" alt="03" />
+                    </div>
+                    <div class="text-wrap">
+                      <h3 class="title font-pb">2017 서울사케페스티벌</h3>
+                      <a href="">
+                        <button class="text-wrap-btn">
+                          <p class="text font-pb">more</p>
+                          <i class="xi-plus-min"></i>
+                        </button>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="swiper-slide article">
+                    <div class="img-wrap">
+                      <img src="./images/article/01.png" alt="04" />
+                    </div>
+                    <div class="text-wrap">
+                      <h3 class="title font-pb">2017 농림식품산업 일자리 박람회</h3>
+                      <a href="">
+                        <button class="text-wrap-btn">
+                          <p class="text font-pb">more</p>
+                          <i class="xi-plus-min"></i>
+                        </button>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="swiper-slide article">
+                    <div class="img-wrap">
+                      <img src="./images/article/01.png" alt="05" />
+                    </div>
+                    <div class="text-wrap">
+                      <h3 class="title font-pb">2017 친환경운전왕 선발대회</h3>
+                      <a href="">
+                        <button class="text-wrap-btn">
+                          <p class="text font-pb">more</p>
+                          <i class="xi-plus-min"></i>
+                        </button>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="swiper-slide article">
+                    <div class="img-wrap">
+                      <img src="./images/article/01.png" alt="06" />
+                    </div>
+                    <div class="text-wrap">
+                      <h3 class="title font-pb">2017 친환경운전왕 선발대회</h3>
+                      <a href="">
+                        <button class="text-wrap-btn">
+                          <p class="text font-pb">more</p>
+                          <i class="xi-plus-min"></i>
+                        </button>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="swiper-slide article">
+                    <div class="img-wrap">
+                      <img src="./images/article/01.png" alt="07" />
+                    </div>
+                    <div class="text-wrap">
+                      <h3 class="title font-pb">2017 친환경운전왕 선발대회</h3>
+                      <a href="">
+                        <button class="text-wrap-btn">
+                          <p class="text font-pb">more</p>
+                          <i class="xi-plus-min"></i>
+                        </button>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="swiper-slide article">
+                    <div class="img-wrap">
+                      <img src="./images/article/01.png" alt="08" />
+                    </div>
+                    <div class="text-wrap">
+                      <h3 class="title font-pb">2017 친환경운전왕 선발대회</h3>
+                      <a href="">
+                        <button class="text-wrap-btn">
+                          <p class="text font-pb">more</p>
+                          <i class="xi-plus-min"></i>
+                        </button>
+                      </a>
+                    </div>
+                  </div>
+
+
+                </div>
               </div>
             </div>
-
           </div>
-
 
           <div class="swiper-slide contact">
             <div class="contact-img-section">
               <div class="main-text-wrap">
                 <h4 class="sub-title font-pm">INQUIRY</h4>
-                <h3 class="title font-pb">
-                  CONTACT
-                </h3>
+                <h3 class="title font-pb">CONTACT</h3>
                 <p class="text font-pr">
-                  주식회사 24시응급환자이송센터에 궁금한 점을 남겨주세요. <br>
+                  주식회사 24시응급환자이송센터에 궁금한 점을 남겨주세요. <br />
                   저희 회사는 언제나 고객의 목소리에 귀 기울이고 있습니다.
                 </p>
 
@@ -301,17 +415,16 @@
                     <i class="xi-maker"></i>
                   </div>
                   <div class="text-wrap">
-                    <p class="text">서울시 서대문구 수색로19-1(남가좌동,지층)</p>
+                    <p class="text">
+                      서울시 서대문구 수색로19-1(남가좌동,지층)
+                    </p>
                   </div>
                 </div>
               </div>
             </div>
 
-
             <div class="contact-section">
               <form action="" method="post" class="contact-form">
-
-          
                 <div class="input-wrap-flex">
                   <div class="input-wrap">
                     <p class="info font-pb">성함<span>*</span></p>
@@ -339,7 +452,6 @@
                       placeholder="이메일을 입력해주세요."
                     />
                   </div>
-
                 </div>
                 <div class="text-area-wrap">
                   <p class="info font-pb">문의내용</p>
@@ -360,16 +472,22 @@
                       class="check-box"
                       required
                     />
-          
+
                     <p class="check-info font-pr">
                       개인정보 수집 및 이용에 대한 동의 (필수)
                     </p>
                   </label>
+                  <span class="check-info-detail font-pm">
+                    <a href="" target="_blank"> 전문보기 </a>
+                  </span>
                 </div>
-                <button type="submit" class="btn-submit font-pb">문의하기</button>
+                <button type="submit" class="btn-submit font-pb">
+                  문의하기
+                </button>
               </form>
             </div>
           </div>
+          <div id="footer"></div>
         </div>
         <div class="swiper-pagination"></div>
       </div>
@@ -430,6 +548,18 @@
         pagination: {
           el: ".swiper-pagination",
           clickable: true,
+        },
+      });
+    </script>
+
+    <script>
+      var swiper = new Swiper(".gallerySwiper", {
+        slidesPerView: 5,
+        spaceBetween: 24,
+        freeMode: true,
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
         },
       });
     </script>

@@ -1,0 +1,69 @@
+<header class="header">
+  <div class="header-top">
+    <div class="com-img-wrap">
+      <a href="">
+        <img
+          src="../images/logo_wrap/logo_not_hover.png"
+          alt="주식회사 24시응급환자이송센터"
+        />
+      </a>
+    </div>
+
+    <nav class="header-nav-wrap">
+      <div class="wrap">
+        <div class="nav-wrap">
+          <button class="nav font-pm">회사소개</button>
+        </div>
+        <div class="nav-sub-wrap">
+          <button class="nav-sub font-pl">인사말</button>
+          <button class="nav-sub font-pl">조직도</button>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="nav-wrap">
+          <button class="nav font-pm">주요업무</button>
+        </div>
+        <div class="nav-sub-wrap">
+          <button class="nav-sub font-pl">환자이송</button>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="nav-wrap">
+          <button class="nav font-pm">행사의료지원</button>
+        </div>
+        <div class="nav-sub-wrap">
+          <button class="nav-sub font-pl">행사의료지원</button>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="nav-wrap">
+          <button class="nav font-pm">고객센터</button>
+        </div>
+        <div class="nav-sub-wrap">
+          <button class="nav-sub font-pl">공지사항</button>
+          <button class="nav-sub font-pl">자주 묻는 질문</button>
+          <button class="nav-sub font-pl">문의하기</button>
+        </div>
+      </div>
+    </nav>
+
+    <div class="call-wrap">
+      <a href="tel:1800-7432" class="call-number">
+        <i class="xi-call"></i>
+        <p class="num font-pr">1800-7432</p>
+      </a>
+    </div>
+  </div>
+</header>
+
+<script>
+  const header = document.getElementById("header");
+  const logo = document.querySelector(".header .header-top .com-img-wrap img");
+
+  header.addEventListener("mouseover", () => {
+    logo.src = "../images/logo_wrap/logo_hover.png";
+  });
+  header.addEventListener("mouseout", () => {
+    logo.src = "../images/logo_wrap/logo_not_hover.png";
+  });
+</script>
