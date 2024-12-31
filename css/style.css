@@ -1486,7 +1486,7 @@ body {
   .nav-wrap::after {
   position: absolute;
 
-  bottom: -28px;
+  bottom: -18px;
   left: 0px;
 
   display: block;
