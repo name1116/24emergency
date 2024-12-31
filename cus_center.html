@@ -494,7 +494,94 @@
       </div>
     </section>
     <section class="inquiry-section">
-      <h3 class="title font-pb">문의하기</h3>
+      <form action="" method="post" class="cus-contact-form">
+        <div class="text-title-wrap">
+          <h3 class="title font-pb">문의하기</h3>
+          <p class="info font-pr"><span>*</span> 필수 입력 항목</p>
+        </div>
+  
+        <div class="input-wrap-flex">
+          <div class="input-wrap">
+            <p class="info font-pb">성함<span>*</span></p>
+            <input
+              type="text"
+              name="name"
+              placeholder="성함을 입력해주세요."
+              required
+            />
+          </div>
+          <div class="input-wrap">
+            <p class="info font-pb">연락처<span>*</span></p>
+            <input
+              type="number"
+              name="phone"
+              placeholder="연락처를 입력해주세요."
+              required
+            />
+          </div>
+          <div class="input-wrap">
+            <p class="info font-pb">이메일</p>
+            <input
+              type="email"
+              name="email"
+              placeholder="이메일을 입력해주세요."
+            />
+          </div>
+
+        </div>
+        <div class="text-area-wrap">
+          <p class="info font-pb">문의내용</p>
+          <textarea
+            type="text"
+            name="message"
+            placeholder="문의내용을 기재해주세요."
+            class="text-area"
+          ></textarea>
+        </div>
+  
+        <div class="accept-wrap">
+          <p class="title font-pb">개인정보수집 동의</p>
+          <div class="information-wrap">
+            <p class="title font-pm">개인정보 수집 • 이용 내역</p>
+            <div class="text-flex-wrap">
+              <p class="text-title font-pl">항목 (필수항목)</p>
+              <p class="text-content font-pl">성명, 연락처</p>
+            </div>
+            <div class="text-flex-wrap">
+              <p class="text-title font-pl">수집 • 이용 목적</p>
+              <p class="text-content font-pl">
+                고객문의는 최소한의 개인정보만을 수집합니다. 상담내용확인 및
+                상담결과 회신 서비스 제공을 목적으로 개인정보 수집 이용 동의를
+                구합니다.
+              </p>
+            </div>
+            <div class="text-flex-wrap">
+              <p class="text-title font-pl">보유기간</p>
+              <p class="text-content font-pl">
+                개인정보 수집 및 이용목적이 달성된 후에는 해당 정보를 지체없이
+                파기합니다. (단, 타 법령에 의해 보존의무가 있는 경우 법령이 지정한
+                기간 동안 보존합니다.)
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="check-wrap">
+          <label for="check">
+            <input
+              type="checkbox"
+              name="agreement"
+              id="check"
+              class="check-box"
+              required
+            />
+  
+            <p class="check-info font-pr">
+              개인정보 수집 및 이용에 대한 동의 (필수)
+            </p>
+          </label>
+        </div>
+        <button type="submit" class="btn-submit font-pb">문의하기</button>
+      </form>
     </section>
     <div id="contact_menu"></div>
     <div id="top_menu"></div>
