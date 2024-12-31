@@ -609,7 +609,7 @@
   column-gap: 32px;
   max-width: 760px;
   max-height: 840px;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 .main-slide-container
   .containerSwiper
@@ -2394,6 +2394,37 @@
   color: #202020;
 }
 .event-main-wrap .scroll-btn-wrap .scroll-btn.active {
+  width: 180px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  text-align: center;
+  background-color: #599224;
+  border-radius: 31px;
+
+  font-size: 18px;
+  color: #fff;
+}
+
+
+.event-main-wrap .cus-scroll-btn-wrap {
+  margin-top: 80px;
+  margin-bottom: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.event-main-wrap .cus-scroll-btn-wrap .scroll-btn {
+  width: 180px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  text-align: center;
+  background-color: #fcfcfc;
+  border-radius: 31px;
+
+  font-size: 18px;
+  color: #202020;
+}
+.event-main-wrap .cus-scroll-btn-wrap .scroll-btn.active {
   width: 180px;
   padding-top: 20px;
   padding-bottom: 20px;

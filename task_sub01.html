@@ -231,6 +231,43 @@
     <div id="top_menu"></div>
     <div id="footer"></div>
   </body>
+  <script>
+    const buttons = document.querySelectorAll(
+      ".task-main-wrap .scroll-btn-wrap button"
+    );
+    const sections = document.querySelectorAll(
+      ".task-main-wrap .task-section"
+    );
+
+    // 스크롤 이벤트를 처리하는 함수
+    const handleScroll = () => {
+      const offset = window.innerHeight / 2; // 화면 중간 기준으로 판단
+      sections.forEach((section, index) => {
+        const rect = section.getBoundingClientRect();
+        if (rect.top <= offset && rect.bottom >= offset) {
+          // 현재 화면 중앙에 해당 섹션이 위치한 경우
+          buttons.forEach((btn) => btn.classList.remove("active"));
+          buttons[index].classList.add("active");
+        }
+      });
+    };
+
+    // 버튼 클릭 이벤트 설정
+    buttons.forEach((button, index) => {
+      button.addEventListener("click", () => {
+        sections[index].scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      });
+    });
+
+    // 스크롤 이벤트 등록
+    window.addEventListener("scroll", handleScroll);
+
+    // 초기 상태에서 active 버튼 설정
+    handleScroll();
+  </script>
 
   <script>
     const scrollBtns = document.querySelectorAll(
