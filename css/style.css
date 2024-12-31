@@ -251,11 +251,14 @@
   width: 100%;
   height: 100vh;
 }
+/* .main-slide-container .swiper.containerSwiper .swiper-wrapper .swiper-slide.foot {
+  height: auto;
+} */
 
 .video-container {
   position: relative;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   overflow: hidden;
 }
 
@@ -461,10 +464,12 @@
   .swiper-slide
   .main-flex-container {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   padding-top: 140px;
-  gap: 180px;
+  padding-left: 240px;
+  padding-right: 240px;
+  /* gap: 180px; */
   position: relative;
 
   overflow: hidden;
@@ -628,8 +633,7 @@
   a {
   max-width: 360px;
   width: 100%;
-  max-height: 481px;
-  height: 100%;
+  height: 481px;
 }
 .main-slide-container
   .containerSwiper
@@ -649,8 +653,7 @@
   a.even {
   position: relative;
   padding-top: 40px;
-  max-height: 521px;
-  height: 100%;
+  height: 521px;
 }
 .main-slide-container
   .containerSwiper
@@ -792,7 +795,10 @@
 }
 
 @keyframes rotate_image {
-  100% {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
     transform: rotate(360deg);
   }
 }
@@ -1157,10 +1163,9 @@
 
 .swiper-slide.contact {
   display: flex;
+  height: calc(100vh - 259px) !important;
 }
-.swiper-slide.contact {
-  height: calc(100% - 259px) !important;
-}
+
 .swiper-slide.contact .contact-img-section {
   width: 50%;
   height: 100%;
@@ -1171,6 +1176,7 @@
   background-size: cover;
   position: relative;
 }
+
 .swiper-slide.contact .contact-section {
   width: 50%;
   height: 100%;
@@ -1270,7 +1276,7 @@
   padding-top: 184px;
   padding-left: 56px;
 }
-.swiper-slide.contact .contact-section .cus-contact-form {
+.swiper-slide.contact .contact-section .contact-form {
   max-width: 700px;
 }
 .contact-form .input-wrap-flex {
@@ -1451,10 +1457,16 @@
 
 /* header, footer */
 
+body {
+  position: relative;
+}
+
 #header {
-  position: fixed;
+  position: absolute;
   width: 100%;
   z-index: 100;
+  top: 0px;
+  left: 0px;
 }
 #header:hover {
   height: 330px;
@@ -1748,16 +1760,19 @@
   line-height: 1.67;
   margin-top: 40px;
 }
-.about-company .section-change-btn {
+.section-change-btn {
   width: 100%;
   height: 59px;
+  position: sticky;
+  top: 0;
 
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: #fff;
+  z-index: 50;
 }
-.about-company .section-change-btn .section-btn {
+.section-change-btn .section-btn {
   width: 288px;
   height: 59px;
 
@@ -1766,7 +1781,7 @@
 
   position: relative;
 }
-.about-company .section-change-btn .section-btn.able::after {
+.section-change-btn .section-btn.able::after {
   position: absolute;
   display: block;
   clear: both;
@@ -1961,6 +1976,8 @@
   height: 320px;
   border-radius: 10px;
   overflow: hidden;
+  display: flex;
+  align-items: center;
 }
 .task-main-wrap
   .task-section
@@ -1969,6 +1986,16 @@
   .img-wrap
   img {
   object-fit: cover;
+  transition-duration: 0.3s;
+}
+.task-main-wrap
+  .task-section
+  .task-flex-and-block-wrap
+  .task-content
+  .img-wrap
+  img:hover {
+  transform: scale(1.2, 1.2);
+  transition-duration: 0.5s;
 }
 .task-main-wrap
   .task-section
@@ -2404,7 +2431,6 @@
   font-size: 18px;
   color: #fff;
 }
-
 
 .event-main-wrap .cus-scroll-btn-wrap {
   margin-top: 80px;
@@ -3020,6 +3046,7 @@
 }
 .gallery-section .gallery-main .gallery-content .img-wrap {
   width: 100%;
+  height: 304px;
 }
 .gallery-section .gallery-main .gallery-content:hover .img-wrap {
   position: relative;
@@ -3038,13 +3065,15 @@
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
 
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .gallery-section .gallery-main .gallery-content .img-wrap img {
-  object-fit: cover;
+  width: 100%;
+  height: 100%;
   border-radius: 8px;
 }
 .gallery-section .gallery-main .gallery-content .text-wrap {
@@ -3974,9 +4003,7 @@
   background-color: #599224;
 }
 
-
-.inquiry-section 
-.cus-contact-form {
+.inquiry-section .cus-contact-form {
   position: relative;
   max-width: 1440px;
   width: 100%;
@@ -4144,7 +4171,10 @@
   justify-content: left;
   align-items: first baseline;
 }
-.cus-contact-form .accept-wrap .information-wrap .text-flex-wrap:not(:last-child) {
+.cus-contact-form
+  .accept-wrap
+  .information-wrap
+  .text-flex-wrap:not(:last-child) {
   margin-bottom: 8px;
 }
 .cus-contact-form .accept-wrap .information-wrap .text-flex-wrap .text-title {

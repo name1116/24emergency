@@ -76,12 +76,16 @@
 
 <script>
   if (location.pathname.endsWith("index.html") ||  location.pathname === "/") {
+    console.log("active");
     function headerChange() {
       const mainSlide = document.querySelector(
         ".main-slide-container .swiper.containerSwiper .swiper-wrapper .swiper-slide.swiper-slide-active"
       );
       const textElements = document.querySelectorAll(
         ".header .header-top .header-nav-wrap .nav-wrap .nav"
+      );
+      const headerBg = document.querySelector(
+        "#header"
       );
       const headerLogo = document.querySelector(
         ".header .header-top .com-img-wrap a img"
@@ -111,6 +115,7 @@
           callContainer.style.borderColor = "";
           callIcon.style.color = "";
           callText.style.color = "";
+          header.style.backgroundColor = "";
 
           header.addEventListener("mouseover", () => {
             headerLogo.src = "../images/logo_wrap/logo_hover.png";
@@ -127,7 +132,7 @@
           callContainer.style.borderColor = "#5fc700";
           callIcon.style.color = "#202020";
           callText.style.color = "#202020";
-
+          header.style.backgroundColor = "#fff";
           header.addEventListener("mouseover", () => {
             headerLogo.src = "../images/logo_wrap/logo_hover.png";
           });

@@ -35,15 +35,16 @@
           </p>
         </div>
       </div>
-      <div class="section-change-btn">
-        <button class="section-btn able font-pb" data-section="event">
-          행사의료지원
-        </button>
-        <button class="section-btn font-pb" data-section="gallery">
-          갤러리
-        </button>
-      </div>
+
     </section>
+    <div class="section-change-btn">
+      <button class="section-btn able font-pb" data-section="event">
+        행사의료지원
+      </button>
+      <button class="section-btn font-pb" data-section="gallery">
+        갤러리
+      </button>
+    </div>
     <section class="event-section event-main-wrap">
       <div class="event-title-wrap fore">
         <h3 class="title font-pb">행사의료지원</h3>
@@ -784,6 +785,7 @@
 
     // 스크롤 이벤트를 처리하는 함수
     const handleScroll = () => {
+      console.log("handleScroll");
       const offset = window.innerHeight / 2; // 화면 중간 기준으로 판단
       sections.forEach((section, index) => {
         const rect = section.getBoundingClientRect();

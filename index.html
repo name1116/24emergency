@@ -504,6 +504,8 @@
             </div>
           </div>
           <div id="footer"></div>
+
+
         </div>
         <div class="swiper-pagination"></div>
       </div>
@@ -562,7 +564,6 @@
         speed: 500,
         direction: "vertical",
         mousewheel: true,
-        nested: true,
         pagination: {
           el: ".swiper-pagination",
           clickable: true,
@@ -825,5 +826,27 @@
     $(".pop-parent .btn-toggle").click(function () {
       $(".pop-parent").toggleClass("active");
     });
+  </script>
+
+  <script>
+    const galleryIcon = document.querySelectorAll(".swiper-slide.gallery .slide-gallery .gallerySwiper .swiper-wrapper .article .text-wrap .text-wrap-btn i");
+
+    galleryIcon.forEach((icon) => {
+      icon.addEventListener("mouseout", () => {
+        icon.style.animation = "none";
+        setTimeout(() => {
+          icon.style.animation = "rotate_image 0.2s linear";
+        }, 10);
+      })
+    })
+
+    galleryIcon.forEach((icon) => {
+      icon.addEventListener("mouseover", () => {
+        icon.style.animation = "none";
+        setTimeout(() => {
+          icon.style.animation = "rotate_image 0.2s linear";
+        }, 10);
+      })
+    })
   </script>
 </html>
