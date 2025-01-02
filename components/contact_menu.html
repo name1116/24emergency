@@ -13,7 +13,7 @@
     justify-content: center;
     opacity: 1;
     transition: 0.3s;
-    z-index: 200;
+    z-index: 100;
   }
 
   .sns-open i {
@@ -51,6 +51,9 @@
     background-color: #fe0;
     box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.16);
   }
+  .sns-btn-wrap.active .sns-btn.call {
+    display: none;
+  }
 
   .sns-btn-wrap.active .sns-btn.sms i {
     font-size: 24px;
@@ -68,6 +71,44 @@
   .sns-btn-wrap.disable {
     display: none;
   }
+
+  @media screen and (max-width: 767px) {
+    .sns-open {
+      right: 16px;
+      bottom: 92px;
+      width: 40px;
+      height: 40px;
+    }
+    .sns-open i {
+      font-size: 17px;
+    }
+    .sns-btn-wrap.active {
+      gap: 12px;
+    }
+    .sns-btn-wrap.active {
+      right: 16px;
+      bottom: 92px;
+    }
+    .sns-btn-wrap.active .sns-btn {
+      width: 40px;
+      height: 40px;
+    }
+    .sns-btn-wrap.active .sns-btn.call {
+      display: block;
+      box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.16);
+      background-color: #5fc700;
+    }
+    .sns-btn-wrap.active .sns-btn.call i {
+      font-size: 17px;
+      color: #fff;
+    }
+    .sns-btn-wrap.active .sns-btn.sms i {
+      font-size: 20px;
+    }
+    .sns-btn-wrap.active .sns-btn.kakao i {
+      font-size: 24px;
+    }
+  }
 </style>
 
 <button class="sns-open">
@@ -75,6 +116,11 @@
 </button>
 
 <div id="sns-btn-wrap" class="sns-btn-wrap disable">
+  <a href="tel:1800-7432" target="_blank">
+    <button class="sns-btn call">
+      <i class="xi-call"></i>
+    </button>
+  </a>
   <a href="https://pf.kakao.com/_SxoqXG" target="_blank">
     <button class="sns-btn sms">
       <i class="xi-message-o"></i>
@@ -128,8 +174,19 @@
 
   window.addEventListener("load", () => {
     if (window.innerWidth <= 767) {
-      toggleBtn.style.bottom = "128px";
+      toggleBtn.style.bottom = "92px";
     } else {
+      toggleBtn.style.bottom = "112px";
+    }
+  });
+  window.addEventListener("resize", () => {
+    if (window.innerWidth <= 767 && toggleBtnIcon.className === "xi-close") {
+      toggleBtn.style.bottom = "248px";
+    } else if (window.innerWidth > 767 && toggleBtnIcon.className === "xi-close") {
+      toggleBtn.style.bottom = "240px";
+    } else if (window.innerWidth <= 767 && toggleBtnIcon.className === "xi-bars") {
+      toggleBtn.style.bottom = "92px";
+    } else if (window.innerWidth > 767 && toggleBtnIcon.className === "xi-bars") {
       toggleBtn.style.bottom = "112px";
     }
   });
@@ -137,7 +194,7 @@
   toggleBtn.addEventListener("click", () => {
     if (toggleBtnIcon.className === "xi-bars") {
       if (window.innerWidth <= 767) {
-        toggleBtn.style.bottom = "448px";
+        toggleBtn.style.bottom = "248px";
       } else {
         toggleBtn.style.bottom = "240px";
       }
@@ -145,7 +202,7 @@
       toggleBtnIcon.className = "xi-close";
     } else {
       if (window.innerWidth <= 767) {
-        toggleBtn.style.bottom = "128px";
+        toggleBtn.style.bottom = "92px";
       } else {
         toggleBtn.style.bottom = "112px";
       }

@@ -1,3 +1,5 @@
+<link rel="shortcut icon" href="images/favicon.png" type="image/x-icon" />
+
 <header class="header">
   <div class="header-top">
     <div class="com-img-wrap">
@@ -15,8 +17,16 @@
           <button class="nav font-pm">회사소개</button>
         </div>
         <div class="nav-sub-wrap">
-          <button class="nav-sub font-pl"><a href="../about_sub01.html#companyintroduce" class="font-pl">인사말</a></button>
-          <button class="nav-sub font-pl"><a href="../about_sub01.html#companybranch" class="font-pl">조직도</a></button>
+          <button class="nav-sub font-pl">
+            <a href="../about_sub01.html#companyintroduce" class="font-pl"
+              >인사말</a
+            >
+          </button>
+          <button class="nav-sub font-pl">
+            <a href="../about_sub01.html#companybranch" class="font-pl"
+              >조직도</a
+            >
+          </button>
         </div>
       </div>
       <div class="wrap">
@@ -24,7 +34,9 @@
           <button class="nav font-pm">주요업무</button>
         </div>
         <div class="nav-sub-wrap">
-          <button class="nav-sub font-pl"><a href="../task_sub01.html" class="font-pl">환자이송</a></button>
+          <button class="nav-sub font-pl">
+            <a href="../task_sub01.html" class="font-pl">환자이송</a>
+          </button>
         </div>
       </div>
       <div class="wrap">
@@ -32,7 +44,9 @@
           <button class="nav font-pm">행사의료지원</button>
         </div>
         <div class="nav-sub-wrap">
-          <button class="nav-sub font-pl"><a href="../event_sub01.html" class="font-pl">행사의료지원</a></button>
+          <button class="nav-sub font-pl">
+            <a href="../event_sub01.html" class="font-pl">행사의료지원</a>
+          </button>
         </div>
       </div>
       <div class="wrap">
@@ -40,9 +54,15 @@
           <button class="nav font-pm">고객센터</button>
         </div>
         <div class="nav-sub-wrap">
-          <button class="nav-sub font-pl"><a href="../cus_center.html#notice" class="font-pl">공지사항</a></button>
-          <button class="nav-sub font-pl"><a href="../cus_center.html#F&Q" class="font-pl">자주 묻는 질문</a></button>
-          <button class="nav-sub font-pl"><a href="../cus_center.html#inquiry" class="font-pl">문의하기</a></button>
+          <button class="nav-sub font-pl">
+            <a href="../cus_center.html#notice" class="font-pl">공지사항</a>
+          </button>
+          <button class="nav-sub font-pl">
+            <a href="../cus_center.html#F&Q" class="font-pl">자주 묻는 질문</a>
+          </button>
+          <button class="nav-sub font-pl">
+            <a href="../cus_center.html#inquiry" class="font-pl">문의하기</a>
+          </button>
         </div>
       </div>
     </nav>
@@ -53,8 +73,88 @@
         <p class="num font-pr">1800-7432</p>
       </a>
     </div>
+
+    <div class="mobile-header-btn">
+      <button class="header-btn">
+        <img src="../images/mobile_btn.png" />
+      </button>
+    </div>
   </div>
+
+
 </header>
+<div class="overlay"></div>
+<div class="mobile-header-menu">
+
+  <div class="close-btn-wrap">
+    <button class="close-btn">
+      <i class="xi-close"></i>
+    </button>
+  </div>
+
+  <div class="mobile-header-main">
+    <div class="com-img-wrap">
+      <a href="">
+        <img src="../images/logo_wrap/logo_b.png" alt="24시응급" />
+      </a>
+    </div>
+    <div class="mobile-nav-wrap">
+      <button class="mobile-nav">
+        <p class="nav-text font-pb">회사소개</p>
+        <i class="xi-angle-down"></i>
+      </button>
+      <div class="mobile-nav-detail">
+        <a href="">
+          <p class="nav-text font-pr">인사말</p>
+        </a>
+        <a href="">
+          <p class="nav-text font-pr">조직도</p>
+        </a>
+      </div>
+    </div>
+    <div class="mobile-nav-wrap">
+      <button class="mobile-nav">
+        <p class="nav-text font-pb">주요업무</p>
+        <i class="xi-angle-down"></i>
+      </button>
+      <div class="mobile-nav-detail">
+        <a href="">
+          <p class="nav-text font-pr">환자이송</p>
+        </a>
+      </div>
+    </div>
+    <div class="mobile-nav-wrap">
+      <button class="mobile-nav">
+        <p class="nav-text font-pb">행사의료지원</p>
+        <i class="xi-angle-down"></i>
+      </button>
+      <div class="mobile-nav-detail">
+        <a href="">
+          <p class="nav-text font-pr">행사의료지원</p>
+        </a>
+      </div>
+    </div>
+    <div class="mobile-nav-wrap">
+      <button class="mobile-nav">
+        <p class="nav-text font-pb">고객센터</p>
+        <i class="xi-angle-down"></i>
+      </button>
+      <div class="mobile-nav-detail">
+        <a href="">
+          <p class="nav-text font-pr">공지사항</p>
+        </a>
+        <a href="">
+          <p class="nav-text font-pr">자주 묻는 질문</p>
+        </a>
+        <a href="">
+          <p class="nav-text font-pr">문의하기</p>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 
 <script>
   if (!location.pathname.endsWith("index.html") || !location.pathname === "/") {
@@ -75,7 +175,7 @@
 </script>
 
 <script>
-  if (location.pathname.endsWith("index.html") ||  location.pathname === "/") {
+  if (location.pathname.endsWith("index.html") || location.pathname === "/") {
     console.log("active");
     function headerChange() {
       const mainSlide = document.querySelector(
@@ -84,9 +184,7 @@
       const textElements = document.querySelectorAll(
         ".header .header-top .header-nav-wrap .nav-wrap .nav"
       );
-      const headerBg = document.querySelector(
-        "#header"
-      );
+      const headerBg = document.querySelector("#header");
       const headerLogo = document.querySelector(
         ".header .header-top .com-img-wrap a img"
       );
@@ -101,13 +199,13 @@
       );
       const header = document.getElementById("header");
       const headerBody = document.querySelector(".header-top");
+      const mobileMenu = document.querySelector(".header .header-top .mobile-header-btn .header-btn");
 
       if (mainSlide) {
         const aria = mainSlide.getAttribute("aria-label");
 
-
         if (aria === "1 / 5") {
-            console.log("1");
+          console.log("1");
           textElements.forEach((el) => {
             el.style.color = ""; // 기본 색상으로 되돌리기
           });
@@ -116,6 +214,7 @@
           callIcon.style.color = "";
           callText.style.color = "";
           header.style.backgroundColor = "";
+          mobileMenu.style.filter = "";
 
           header.addEventListener("mouseover", () => {
             headerLogo.src = "../images/logo_wrap/logo_hover.png";
@@ -123,8 +222,7 @@
           header.addEventListener("mouseout", () => {
             headerLogo.src = "../images/logo_wrap/logo_not_hover.png";
           });
-        }
-        else {
+        } else {
           textElements.forEach((el) => {
             el.style.color = "#202020"; // 특정 색상으로 변경
           });
@@ -132,6 +230,7 @@
           callContainer.style.borderColor = "#5fc700";
           callIcon.style.color = "#202020";
           callText.style.color = "#202020";
+          mobileMenu.style.filter = "invert(100%)";
           header.style.backgroundColor = "#fff";
           header.addEventListener("mouseover", () => {
             headerLogo.src = "../images/logo_wrap/logo_hover.png";
@@ -140,8 +239,6 @@
             headerLogo.src = "../images/logo_wrap/logo_hover.png";
           });
         }
-
-
       }
     }
 
@@ -149,4 +246,74 @@
     window.addEventListener("wheel", headerChange);
     window.addEventListener("load", headerChange);
   }
+</script>
+
+<script>
+  // 1280px 초과 시 .mobile-header-menu 숨기기
+  const mobileHeaderMenu = document.querySelector(".mobile-header-menu");
+  const overlay = document.querySelector(".overlay");
+
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 1280) {
+      mobileHeaderMenu.style.display = "none";
+      overlay.style.display = "none"; // 배경도 숨김
+    }
+  });
+
+  if (window.innerWidth > 1280) {
+    mobileHeaderMenu.style.display = "none";
+    overlay.style.display = "none";
+  }
+
+  // .header-btn 클릭 시 .mobile-header-menu 표시
+  const headerBtn = document.querySelector(".mobile-header-btn .header-btn");
+  headerBtn.addEventListener("click", () => {
+    mobileHeaderMenu.style.display = "flex";
+    overlay.style.display = "block";
+  });
+
+  // .close-btn 클릭 시 .mobile-header-menu 숨기기
+  const closeBtn = document.querySelector(".close-btn-wrap .close-btn");
+  closeBtn.addEventListener("click", () => {
+    mobileHeaderMenu.style.display = "none";
+    overlay.style.display = "none";
+  });
+
+  overlay.addEventListener("click", () => {
+  mobileHeaderMenu.style.display = "none";
+  overlay.style.display = "none";
+});
+
+  // .mobile-nav 클릭 시 .mobile-nav-detail 표시/숨김 및 아이콘 변경
+  const mobileNavButtons = document.querySelectorAll(".mobile-nav");
+  mobileNavButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const navDetail = button.nextElementSibling; // .mobile-nav-detail
+      const icon = button.querySelector("i");
+      const text = button.querySelector("p");
+
+      if (navDetail.style.display === "block") {
+        // 현재 열려 있으면 닫기
+        navDetail.style.display = "none";
+        icon.classList.remove("xi-angle-up");
+        icon.classList.add("xi-angle-down");
+        button.style.backgroundColor = "";
+        text.style.color = "";
+        icon.style.color = "";
+      } else {
+        // 현재 닫혀 있으면 열기
+        navDetail.style.display = "block";
+        icon.classList.remove("xi-angle-down");
+        icon.classList.add("xi-angle-up");
+        button.style.backgroundColor = "#599224";
+        text.style.color = "#FFF";
+        icon.style.color = "#FFF";
+      }
+    });
+  });
+
+  // 초기 상태에서 모든 .mobile-nav-detail 숨기기
+  document.querySelectorAll(".mobile-nav-detail").forEach((detail) => {
+    detail.style.display = "none";
+  });
 </script>
