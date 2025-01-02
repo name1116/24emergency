@@ -250,11 +250,11 @@
 .main-slide-container .swiper.containerSwiper .swiper-wrapper .swiper-slide {
   width: 100%;
   height: 100%;
+}
+
+.main-slide-container .swiper.containerSwiper .swiper-wrapper .swiper-slide.contact {
   overflow-y: auto;
 }
-/* .main-slide-container .swiper.containerSwiper .swiper-wrapper .swiper-slide.foot {
-  height: auto !important;
-} */
 
 
 .video-container {
@@ -497,7 +497,6 @@
 .main-slide-container .containerSwiper .swiper-wrapper .swiper-slide.overview {
   position: relative;
   overflow: hidden;
-
 }
 
 .main-slide-container
@@ -791,6 +790,19 @@
   font-size: 32px;
   line-height: 1.21;
   color: #fff;
+}
+
+.main-slide-container .containerSwiper .swiper-wrapper .swiper-slide.main-tasks  {
+  position: relative;
+}
+.main-slide-container .containerSwiper .swiper-wrapper .swiper-slide.main-tasks .bg-image {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  max-width: 960px;
+  max-height: 505px;
+
+  z-index: -1;
 }
 
 .rotate-active {
@@ -1166,10 +1178,8 @@
 }
 /* .containerSwiper {
   overflow-y: auto;
-}
-.containerSwiper .swiper-slide {
-  overflow-y: auto;
 } */
+
 .swiper-slide.contact {
   height: 100% !important;
 }
@@ -4502,7 +4512,7 @@ body {
   .main-slide-container .containerSwiper .swiper-wrapper .swiper-slide.overview .main-flex-container {
     display: block;
   }
-  .main-slide-container .containerSwiper .swiper-wrapper .swiper-slide .main-flex-container .main-work-wrap {
+  .main-slide-container .containerSwiper .swiper-wrapper .swiper-slide.overview .main-flex-container .main-work-wrap {
     flex-wrap: nowrap;
     max-width: none;
     width: 1920px;
@@ -4604,5 +4614,32 @@ body {
   .main-slide-container .containerSwiper .swiper-wrapper .swiper-slide .main-flex-container .main-work-wrap a .text-wrap i {
     margin-top: 24px;
     font-size: 22px;
+  }
+  .main-slide-container .containerSwiper .swiper-wrapper .swiper-slide .circle-deco-2 {
+    display: none;
+  }
+  .main-slide-container .containerSwiper .swiper-wrapper .swiper-slide .main-flex-container .circle-deco {
+    top: -111px;
+    right: -171px;
+  }
+  .main-slide-container .swiper.containerSwiper .swiper-wrapper .swiper-slide.overview {
+    overflow-y: auto;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .main-slide-container .containerSwiper .swiper-wrapper .swiper-slide .main-flex-container {
+    display: block;
+    padding-left: 0px;
+  }
+  .main-slide-container .containerSwiper .swiper-wrapper .swiper-slide.main-tasks .main-flex-container .main-text-wrap {
+    margin-top: 106px;
+  }
+  .main-slide-container .containerSwiper .swiper-wrapper .swiper-slide.main-tasks .main-flex-container .main-task-img-wrap {
+    bottom: 0px;
+    left: 0px;
+    top: auto;
+    width: 100%;
+    height: 50%;
   }
 }

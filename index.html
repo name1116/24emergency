@@ -249,6 +249,9 @@
                 />
               </div>
             </div>
+            <div class="bg-image">
+              <img src="./images/bg_image.png" />
+            </div>
           </div>
           <div class="swiper-slide gallery">
             <div class="gallery-info-wrap">
@@ -582,18 +585,20 @@
       },
     });
 
-    // const overSlide = document.querySelector(".swiper-slide.overview");
+    // const overviewSlide = document.querySelector(
+    //   ".swiper-slide.overview .main-flex-container"
+    // );
 
-    // overSlide.addEventListener("mouseenter", () => {
+    // overviewSlide.addEventListener("mouseenter", () => {
     //   mainSwiper.mousewheel.disable(); // 내부에 진입 시 Swiper 비활성화
     // });
 
-    // overSlide.addEventListener("mouseleave", () => {
+    // overviewSlide.addEventListener("mouseleave", () => {
     //   mainSwiper.mousewheel.enable(); // 외부로 나가면 Swiper 활성화
     // });
 
-    // overSlide.addEventListener("wheel", (e) => {
-    //   const { scrollTop, scrollHeight, clientHeight } = overSlide;
+    // overviewSlide.addEventListener("wheel", (e) => {
+    //   const { scrollTop, scrollHeight, clientHeight } = overviewSlide;
     //   const isAtTop = scrollTop === 0 && e.deltaY < 0;
     //   const isAtBottom =
     //     scrollTop + clientHeight >= scrollHeight && e.deltaY > 0;
