@@ -120,7 +120,7 @@
                   주식회사 24시응급환자이송센터는 21세기에 적합한<br
                     class="only-mobile"
                   />
-                  응급의료서비스로 <br class="only-pc.tw" />
+                  응급의료서비스로 <br class="only-pc tw" />
                   환자와 가족 여러분의 성원에<br class="only-mobile" />
                   보답하고자 합니다.
                 </p>
@@ -204,10 +204,13 @@
                   <h3 class="title font-pb">환자이송</h3>
                   <p class="text font-pr">
                     환자는 언제든지, 어디서나 나타납니다. <br />
-                    주식회사 24시응급환자이송센터는 일반적인 환자이송 뿐만
-                    아니라
-                    <br />
-                    서울에서 지방으로 퇴원 등 모든 환자이송에 힘쓰고 있습니다.
+                    주식회사 24시응급환자이송센터는 일반적인 환자이송<br
+                      class="only-mobile"
+                    />
+                    뿐만 아니라
+                    <br class="only-pc tw" />
+                    서울에서 지방으로 퇴원 등 모든<br class="only-mobile" />
+                    환자이송에 힘쓰고 있습니다.
                   </p>
                   <a href="./task_sub01.html">
                     <div class="main-btn-wrap">
@@ -218,7 +221,7 @@
                     </div>
                   </a>
                 </div>
-                <div class="text-wrap hidden">
+                <div class="text-wrap hidden support">
                   <h3 class="title font-pb">행사의료지원</h3>
                   <p class="text font-pr">
                     기업 및 공공기관 채용 (실기, 필기) 외 지자체 행사, 운동회
@@ -249,9 +252,9 @@
                 />
               </div>
             </div>
-            <div class="bg-image">
+            <!-- <div class="bg-image">
               <img src="./images/bg_image.png" />
-            </div>
+            </div> -->
           </div>
           <div class="swiper-slide gallery">
             <div class="gallery-info-wrap">
@@ -261,10 +264,14 @@
                 <h4 class="sub-title font-pm">갤러리</h4>
                 <h3 class="title font-pb">행사의료지원 갤러리</h3>
                 <p class="text font-pr">
-                  주식회사 24시응급환자이송센터는 많은 인원이 참여하는 모든
-                  행사에 <br />
-                  혹시나 모를 사고를 대비해 인명피해가 없도록 노력하는데 최선을
-                  다하고 있습니다.
+                  주식회사 24시응급환자이송센터는 많은 인원이 참여하는<br
+                    class="only-mobile"
+                  />
+                  모든 행사에 <br class="only-pc tw" />
+                  혹시나 모를 사고를 대비해 인명피해가 없도록<br
+                    class="only-mobile"
+                  />
+                  노력하는데 최선을 다하고 있습니다.
                 </p>
               </div>
               <div class="btn-container">
@@ -665,6 +672,31 @@
       }
     });
 
+    const gallerySlide = document.querySelector(".swiper-slide.gallery");
+
+    gallerySlide.addEventListener("mouseenter", () => {
+      mainSwiper.mousewheel.disable(); // 내부에 진입 시 Swiper 비활성화
+    });
+
+    gallerySlide.addEventListener("mouseleave", () => {
+      mainSwiper.mousewheel.enable(); // 외부로 나가면 Swiper 활성화
+    });
+
+    gallerySlide.addEventListener("wheel", (e) => {
+      const { scrollTop, scrollHeight, clientHeight } = gallerySlide;
+      const isAtTop = scrollTop === 0 && e.deltaY < 0;
+      const isAtBottom =
+        scrollTop + clientHeight >= scrollHeight && e.deltaY > 0;
+
+      if (!isAtTop && !isAtBottom) {
+        // 슬라이드 내부에서 스크롤 가능하도록 이벤트 중지
+        e.stopPropagation();
+      } else {
+        // 위/아래 끝에 도달했을 경우 Swiper로 이벤트 전달
+        mainSwiper.mousewheel.enable();
+      }
+    });
+
     function slideToFirst() {
       mainSwiper.slideTo(0, 1000, false);
 
@@ -730,8 +762,21 @@
 
   <script>
     var swiper = new Swiper(".gallerySwiper", {
-      slidesPerView: 5,
-      spaceBetween: 24,
+      slidesPerView: 1,
+      spaceBetween: 16,
+      // 반응형 옵션
+      breakpoints: {
+        // 768px 이상에서는 3개의 슬라이드를 보여줌
+        768: {
+          slidesPerView: 3,
+          spaceBetween: 20,
+        },
+        // 1024px 이상에서는 5개의 슬라이드를 보여줌
+        1024: {
+          slidesPerView: 5,
+          spaceBetween: 30,
+        },
+      },
       freeMode: true,
       navigation: {
         nextEl: ".swiper-button-next",

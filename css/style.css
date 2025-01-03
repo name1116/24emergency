@@ -1098,7 +1098,7 @@
   position: absolute;
   bottom: 67px;
   left: 89px;
-  width: 100%;
+  width: fit-content;
   height: 357px;
 }
 .swiper-slide.gallery .slide-gallery .gallerySwiper .swiper-wrapper {
@@ -4450,6 +4450,10 @@ body {
   color: #fff;
 }
 
+.main-slide-container .containerSwiper .swiper-wrapper .swiper-slide.main-tasks .main-flex-container {
+  overflow: hidden;
+}
+
 
 
 /* index 반응형 */ 
@@ -4625,6 +4629,7 @@ body {
   .main-slide-container .swiper.containerSwiper .swiper-wrapper .swiper-slide.overview {
     overflow-y: auto;
   }
+
 }
 
 @media screen and (max-width:1440px) {
@@ -4640,6 +4645,193 @@ body {
     left: 0px;
     top: auto;
     width: 100%;
-    height: 50%;
+    height: 45%;
+  }
+  .main-slide-container .containerSwiper .swiper-wrapper .swiper-slide.main-tasks .main-flex-container {
+    padding-left: 0px;
+  }
+  .main-slide-container .containerSwiper .swiper-wrapper .swiper-slide.main-tasks .main-flex-container .main-text-wrap {
+    width: fit-content;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 130px;
+  }
+}
+
+@media screen and (max-width:767px) {
+  .only-pc.tw {
+    display: none;
+  }
+  .main-slide-container .containerSwiper .swiper-wrapper .swiper-slide.main-tasks .main-flex-container .main-text-wrap {
+    margin-top: 106px;
+    margin-left: 16px;
+  }
+  .main-slide-container .containerSwiper .swiper-wrapper .swiper-slide.main-tasks .main-flex-container .main-text-wrap .btn-wrap .section-btn {
+    font-size: 14px;
+  }
+  .main-slide-container .containerSwiper .swiper-wrapper .swiper-slide.main-tasks .main-flex-container .main-text-wrap .btn-wrap {
+    gap: 12px;
+  }
+  .main-slide-container .containerSwiper .swiper-wrapper .swiper-slide.main-tasks .main-flex-container .main-text-wrap .title {
+    margin-top: 16px;
+    font-size: 24px;
+  }
+  .main-slide-container .containerSwiper .swiper-wrapper .swiper-slide.main-tasks .main-flex-container .main-text-wrap .text {
+    margin-top: 24px;
+    font-size: 13px;
+    line-height: 1.38;
+  }
+  .main-slide-container .containerSwiper .swiper-wrapper .swiper-slide .main-flex-container .main-text-wrap .text-wrap.support .main-btn-wrap {
+    margin-top: 40px;
+  }
+}
+
+
+@media screen and (max-width:1200px) {
+  .swiper-slide.gallery .gallery-info-wrap {
+    display: block;
+    width: fit-content;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  .swiper-slide.gallery .gallery-info-wrap .btn-container {
+    margin-top: 32px;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  .swiper-slide.gallery .gallery-info-wrap .circle-deco {
+    left: -200px;
+  }
+  .swiper-slide.gallery .gallery-info-wrap .btn-container .list-btn-wrap {
+  }
+}
+
+@media screen and (max-width:767px) {
+  .swiper-slide.gallery {
+    overflow-y: scroll;
+  }
+  .swiper-slide.gallery .gallery-info-wrap .circle-deco {
+    width: 250px;
+    height: 249px;
+    top: 60px;
+    left: -130px;
+  }
+  .swiper-slide.gallery .gallery-info-wrap {
+    padding-top: 106px;
+  }
+  .swiper-slide.gallery .gallery-info-wrap .text-wrap .sub-title {
+    font-size: 14px;
+  }
+  .swiper-slide.gallery .gallery-info-wrap .text-wrap .title {
+    margin-top: 16px;
+    font-size: 24px;
+  }
+  .swiper-slide.gallery .gallery-info-wrap .text-wrap .text {
+    margin-top: 24px;
+    font-size: 13px;
+  }
+  .swiper-slide.gallery .gallery-info-wrap .btn-container {
+    margin-top: 40px;
+    position: relative;
+    justify-content: flex-end;
+  }
+  .swiper-slide.gallery .gallery-info-wrap .btn-container .main-btn-wrap .main-text-wrap-btn {
+    width: 48px;
+    height: 48px;
+  }
+  .swiper-slide.gallery .gallery-info-wrap .btn-container .main-btn-wrap .main-text-wrap-btn i {
+    font-size: 20px;
+  }
+  .swiper-slide.gallery .gallery-info-wrap .btn-container .main-btn-wrap .deco {
+    width: 64px;
+    height: 64px;
+  }
+  .swiper-slide.gallery .gallery-info-wrap {
+    /* margin-left: 0px;
+    margin-right: 0px; */
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .swiper-slide.gallery .gallery-info-wrap .btn-container .list-btn-wrap {
+    position: absolute;
+    bottom: -18px;
+    right: -50px;
+  }
+
+  .swiper-slide.gallery .slide-gallery {
+    margin-left: 16px;
+    margin-top: 218px;
+    margin-bottom: 114px;
+    height: 150px;
+  }
+  .swiper-slide.gallery .slide-gallery .gallerySwiper {
+    height: 277px;
+    left: 40px;
+    bottom: 40px;
+  }
+  .swiper-slide.gallery .slide-gallery .gallerySwiper .swiper-wrapper .article {
+    width: 272px !important;
+    height: 277px;
+  }
+  .swiper-slide.gallery .slide-gallery .gallerySwiper .swiper-wrapper .article .img-wrap {
+    width: 100%;
+    height: 200px;
+  }
+  .swiper-slide.gallery .slide-gallery .gallerySwiper .swiper-wrapper .article .text-wrap {
+    height: 78px;
+    padding: 0 16px;
+  }
+  .swiper-slide.gallery .slide-gallery .gallerySwiper .swiper-wrapper .article .text-wrap .title {
+    padding-top: 16px;
+    font-size: 14px;
+  }
+  .swiper-slide.gallery .slide-gallery .gallerySwiper .swiper-wrapper .article .text-wrap .text-wrap-btn {
+    padding-top: 12px;
+  }
+  .swiper-slide.gallery .slide-gallery .gallerySwiper .swiper-wrapper .article .text-wrap .text-wrap-btn .text {
+    font-size: 12px;
+  }
+  .swiper-slide.gallery .slide-gallery .gallerySwiper .swiper-wrapper .article .text-wrap .text-wrap-btn i {
+    font-size: 14px;
+  }
+  
+}
+
+
+
+@media screen and (max-width:450px) {
+  .swiper-slide.gallery .gallery-info-wrap {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+}
+
+@media screen and (max-width:1450px) {
+  .contact-form .input-wrap-flex {
+    gap: 24px 24px;
+  }
+  .contact-form .check-wrap {
+    margin-bottom: 40px;
+  }
+  .swiper-slide.contact .contact-section {
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 150px;
+  }
+  .contact-form .input-wrap-flex .input-wrap {
+    max-width: none;
+  }
+  .contact-form .input-wrap-flex .input-wrap input {
+    max-width: none;
+  }
+  
+}
+
+@media screen and (max-width:1440px) {
+  .swiper-slide.contact .flex-section {
+    display: block;
   }
 }
