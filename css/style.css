@@ -2160,7 +2160,7 @@ body {
   margin-left: auto;
   margin-right: auto;
 }
-.task-main-wrap .title {
+.task-main-wrap .task-section .title {
   font-size: 40px;
   line-height: 1.2;
   text-align: left;
@@ -5088,7 +5088,8 @@ body {
 
 }
 
-@media screen and (max-width:767px) {
+/* 767px 변환 필요함 */
+@media screen and (max-width:1500px) {
   .task-main-wrap .task-section.patient {
     width: 100%;
     overflow-x: scroll;
