@@ -32,7 +32,7 @@
                     회사소개
                 </h3>
                 <p class="text font-pr">
-                    환자를 내 가족처럼, 믿을 수 있는 응급의료 파트너 <br>
+                    환자를 내 가족처럼,<br class="only-mobile"> 믿을 수 있는 응급의료 파트너 <br>
                     주식회사 24시응급환자이송센터
                 </p>
             </div>
@@ -138,6 +138,22 @@
       });
     });
   </script>
+
+<script>
+  const background01 = document.querySelector(".company-branch .img-wrap img");
+
+  function imageUpdate() {
+    if (window.innerWidth <= 767) {
+      background01.src = "./images/mo_branch.png";
+    } else {
+      background01.src = "./images/branch.png";
+    }
+  }
+
+  imageUpdate();
+
+  window.addEventListener("resize", imageUpdate);
+</script>
   <script src="./js/jquery.js"></script>
   <script src="./js/script.js"></script>
 </html>
