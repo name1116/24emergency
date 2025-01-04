@@ -2160,7 +2160,7 @@ body {
   margin-left: auto;
   margin-right: auto;
 }
-.task-main-wrap .task-section .title {
+.task-main-wrap .title {
   font-size: 40px;
   line-height: 1.2;
   text-align: left;
@@ -5048,6 +5048,7 @@ body {
     font-size: 14px;
     line-height: 1.43;
     margin-top: 24px;
+    white-space: nowrap;
   }
   .about-company .section-bg-wrap {
     height: 600px;
@@ -5085,4 +5086,21 @@ body {
     font-size: 24px;
   }
 
+}
+
+@media screen and (max-width:767px) {
+  .task-main-wrap .task-section.patient {
+    width: 100%;
+    overflow-x: scroll;
+  }
+
+  .task-main-wrap {
+    overflow: hidden;
+  }
+  .task-main-wrap .task-section .task-flex-and-block-wrap {
+    width: 1440px;
+    flex-wrap: nowrap;
+    padding-left: 16px;
+    
+  }
 }
