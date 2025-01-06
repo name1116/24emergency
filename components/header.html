@@ -45,7 +45,10 @@
         </div>
         <div class="nav-sub-wrap">
           <button class="nav-sub font-pl">
-            <a href="../event_sub01.html" class="font-pl">행사의료지원</a>
+            <a href="../event_sub01.html#event" class="font-pl">행사의료지원</a>
+          </button>
+          <button class="nav-sub font-pl">
+            <a href="../event_sub01.html#gallery" class="font-pl">갤러리</a>
           </button>
         </div>
       </div>
@@ -80,12 +83,9 @@
       </button>
     </div>
   </div>
-
-
 </header>
 <div class="overlay"></div>
 <div class="mobile-header-menu">
-
   <div class="close-btn-wrap">
     <button class="close-btn">
       <i class="xi-close"></i>
@@ -129,8 +129,11 @@
         <i class="xi-angle-down"></i>
       </button>
       <div class="mobile-nav-detail">
-        <a href="../event_sub01.html">
+        <a href="../event_sub01.html#event">
           <p class="nav-text font-pr">행사의료지원</p>
+        </a>
+        <a href="../event_sub01.html#gallery">
+          <p class="nav-text font-pr">갤러리</p>
         </a>
       </div>
     </div>
@@ -154,8 +157,6 @@
   </div>
 </div>
 
-
-
 <script>
   if (!location.pathname.endsWith("index.html") || !location.pathname === "/") {
     console.log("active");
@@ -175,77 +176,134 @@
 </script>
 
 <script>
-  if (location.pathname.endsWith("index.html") || location.pathname === "/") {
-    console.log("active");
-    function headerChange() {
-      const mainSlide = document.querySelector(
-        ".main-slide-container .swiper.containerSwiper .swiper-wrapper .swiper-slide.swiper-slide-active"
-      );
-      const textElements = document.querySelectorAll(
-        ".header .header-top .header-nav-wrap .nav-wrap .nav"
-      );
-      const headerBg = document.querySelector("#header");
-      const headerLogo = document.querySelector(
-        ".header .header-top .com-img-wrap a img"
-      );
-      const callContainer = document.querySelector(
-        ".header .header-top .call-wrap"
-      );
-      const callIcon = document.querySelector(
-        ".header .header-top .call-wrap a i"
-      );
-      const callText = document.querySelector(
-        ".header .header-top .call-wrap a .num"
-      );
-      const header = document.getElementById("header");
-      const headerBody = document.querySelector(".header-top");
-      const mobileMenu = document.querySelector(".header .header-top .mobile-header-btn .header-btn");
+  function updatePagination() {
+    // 활성 슬라이드를 찾음
+    const activeSlide = document.querySelector(
+      ".swiper-slide.swiper-slide-active"
+    );
+    const paginationItems = document.querySelectorAll(
+      ".swiper-pagination-bullet"
+    );
 
-      if (mainSlide) {
-        const aria = mainSlide.getAttribute("aria-label");
+    if (activeSlide) {
+      const ariaLabel = activeSlide.getAttribute("aria-label");
+      if (ariaLabel) {
+        const slideIndex = parseInt(ariaLabel.split(" / ")[0]) - 1;
 
-        if (aria === "1 / 5") {
-          console.log("1");
-          textElements.forEach((el) => {
-            el.style.color = ""; // 기본 색상으로 되돌리기
-          });
-          headerLogo.src = "../images/logo_wrap/logo_not_hover.png";
-          callContainer.style.borderColor = "";
-          callIcon.style.color = "";
-          callText.style.color = "";
-          header.style.backgroundColor = "";
-          mobileMenu.style.filter = "";
+        // 페이지네이션 상태 업데이트
+        paginationItems.forEach((item, index) => {
+          if (index === slideIndex) {
+            item.classList.add("swiper-pagination-bullet-active");
+          } else {
+            item.classList.remove("swiper-pagination-bullet-active");
+          }
+        });
 
-          header.addEventListener("mouseover", () => {
-            headerLogo.src = "../images/logo_wrap/logo_hover.png";
-          });
-          header.addEventListener("mouseout", () => {
-            headerLogo.src = "../images/logo_wrap/logo_not_hover.png";
-          });
-        } else {
-          textElements.forEach((el) => {
-            el.style.color = "#202020"; // 특정 색상으로 변경
-          });
-          headerLogo.src = "../images/logo_wrap/logo_hover.png";
-          callContainer.style.borderColor = "#5fc700";
-          callIcon.style.color = "#202020";
-          callText.style.color = "#202020";
-          mobileMenu.style.filter = "invert(100%)";
-          header.style.backgroundColor = "#fff";
-          header.addEventListener("mouseover", () => {
-            headerLogo.src = "../images/logo_wrap/logo_hover.png";
-          });
-          header.addEventListener("mouseout", () => {
-            headerLogo.src = "../images/logo_wrap/logo_hover.png";
+        // 강제적으로 "5 / 5"일 때 처리
+        if (ariaLabel === "5 / 5") {
+          console.log("Last slide is active"); // 디버깅용 로그
+          paginationItems.forEach((item, index) => {
+            // 마지막 슬라이드에 맞는 페이지네이션만 활성화
+            if (index === paginationItems.length - 1) {
+              item.classList.add("swiper-pagination-bullet-active");
+            } else {
+              item.classList.remove("swiper-pagination-bullet-active");
+            }
           });
         }
       }
     }
-
-    // 이벤트 리스너에 올바른 콜백 함수 전달
-    window.addEventListener("wheel", headerChange);
-    window.addEventListener("load", headerChange);
   }
+
+  function headerChange() {
+    const activeSlide = document.querySelector(
+      ".swiper-slide.swiper-slide-active"
+    );
+    const textElements = document.querySelectorAll(
+      ".header .header-top .header-nav-wrap .nav-wrap .nav"
+    );
+    const headerLogo = document.querySelector(
+      ".header .header-top .com-img-wrap a img"
+    );
+    const callContainer = document.querySelector(
+      ".header .header-top .call-wrap"
+    );
+    const callIcon = document.querySelector(
+      ".header .header-top .call-wrap a i"
+    );
+    const callText = document.querySelector(
+      ".header .header-top .call-wrap a .num"
+    );
+    const header = document.getElementById("header");
+    const mobileMenu = document.querySelector(
+      ".header .header-top .mobile-header-btn .header-btn"
+    );
+
+    if (activeSlide) {
+      const ariaLabel = activeSlide.getAttribute("aria-label");
+      if (ariaLabel && ariaLabel.startsWith("1 /")) {
+        textElements.forEach((el) => {
+          el.style.color = ""; // 기본 색상으로 되돌리기
+        });
+        headerLogo.src = "../images/logo_wrap/logo_not_hover.png";
+        callContainer.style.borderColor = "";
+        callIcon.style.color = "";
+        callText.style.color = "";
+        header.style.backgroundColor = "";
+        mobileMenu.style.filter = "";
+
+        header.addEventListener("mouseover", () => {
+          headerLogo.src = "../images/logo_wrap/logo_hover.png";
+        });
+        header.addEventListener("mouseout", () => {
+          headerLogo.src = "../images/logo_wrap/logo_not_hover.png";
+        });
+      } else {
+        textElements.forEach((el) => {
+          el.style.color = "#202020"; // 특정 색상으로 변경
+        });
+        headerLogo.src = "../images/logo_wrap/logo_hover.png";
+        callContainer.style.borderColor = "#5fc700";
+        callIcon.style.color = "#202020";
+        callText.style.color = "#202020";
+        mobileMenu.style.filter = "invert(100%)";
+        header.style.backgroundColor = "#fff";
+        header.addEventListener("mouseover", () => {
+          headerLogo.src = "../images/logo_wrap/logo_hover.png";
+        });
+        header.addEventListener("mouseout", () => {
+          headerLogo.src = "../images/logo_wrap/logo_hover.png";
+        });
+      }
+    }
+  }
+
+  // Swiper 초기화
+  // const mainSwiper = new Swiper(".containerSwiper", {
+  //   speed: 500,
+  //   direction: "vertical",
+  //   mousewheel: true,
+  //   pagination: {
+  //     el: ".swiper-pagination",
+  //     clickable: true,
+  //   },
+  //   on: {
+  //     slideChangeTransitionEnd: () => {
+  //       headerChange(); // 슬라이드 전환 후 헤더 업데이트
+  //       setTimeout(updatePagination, 100); // 페이지네이션 업데이트
+  //     },
+  //     touchEnd: () => {
+  //       headerChange(); // 터치 끝난 후 헤더 업데이트
+  //       setTimeout(updatePagination, 100); // 페이지네이션 업데이트
+  //     },
+  //   },
+  // });
+
+  // 초기 로드 시 헤더와 페이지네이션 업데이트
+  window.addEventListener("load", () => {
+    headerChange();
+    updatePagination();
+  });
 </script>
 
 <script>
@@ -280,9 +338,9 @@
   });
 
   overlay.addEventListener("click", () => {
-  mobileHeaderMenu.style.display = "none";
-  overlay.style.display = "none";
-});
+    mobileHeaderMenu.style.display = "none";
+    overlay.style.display = "none";
+  });
 
   // .mobile-nav 클릭 시 .mobile-nav-detail 표시/숨김 및 아이콘 변경
   const mobileNavButtons = document.querySelectorAll(".mobile-nav");

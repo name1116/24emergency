@@ -584,12 +584,28 @@
         clickable: true,
       },
       on: {
-        slideChangeTransitionEnd: function () {
-          const activeSlide = document.querySelector(".swiper-slide-active");
-          if (activeSlide) {
-            mainSwiper.allowTouchMove =
-              activeSlide.scrollHeight <= window.innerHeight;
+        slideChangeTransitionEnd: () => {
+          headerChange(); // 슬라이드 전환 후 헤더 업데이트
+        },
+        touchEnd: () => {
+          headerChange(); // 터치 끝난 후 헤더 업데이트
+        },
+      },
+
+      preventClicks: false,
+      preventClicksPropagation: false,
+      allowTouchMove: true,
+      on: {
+        touchStart: function (swiper, event) {
+          // 특정 영역 터치 시 Swiper 이동 제한
+          if (event.target.closest(".scroll-wrap")) {
+            swiper.allowTouchMove = false;
+          } else {
+            swiper.allowTouchMove = true;
           }
+        },
+        touchEnd: function (swiper) {
+          swiper.allowTouchMove = true; // 터치가 끝나면 다시 활성화
         },
       },
     });
@@ -626,21 +642,17 @@
 
     mainWorkWrap.addEventListener("mouseover", () => {
       mainSwiper.mousewheel.disable(); // Swiper의 mousewheel 비활성화
-      console.log("불가가");
     });
 
     mainWorkWrap.addEventListener("mouseout", () => {
       mainSwiper.mousewheel.enable(); // Swiper의 mousewheel 활성화
-      console.log("가능");
     });
     mainWorkWrap.addEventListener("touchstart", () => {
       mainSwiper.mousewheel.disable(); // Swiper의 mousewheel 비활성화
-      console.log("터치 시작 - 스크롤 비활성화");
     });
 
     mainWorkWrap.addEventListener("touchend", () => {
       mainSwiper.mousewheel.enable(); // Swiper의 mousewheel 활성화
-      console.log("터치 종료 - 스크롤 활성화");
     });
 
     // mainWorkWrap 내부에서 스크롤 이벤트 제어
@@ -772,43 +784,49 @@
       }
     }
   </script>
-  
+
   <script>
-    const scrollContainer = document.querySelector('.scroll-wrap');
+    document.addEventListener("DOMContentLoaded", () => {
+      // 드래그 상태 변수
+      let isDragging = false;
+      let startX = 0;
+      let scrollLeft = 0;
 
-    scrollContainer.addEventListener('mousedown', (e) => {
-      e.preventDefault(); // 기본 드래그 동작 방지
-    });
+      // scrollContainer 선택
+      const scrollContainer = document.querySelector(
+        ".main-flex-container .scroll-wrap"
+      );
 
-    scrollContainer.addEventListener('mousemove', (e) => {
-      // 드래그 이벤트가 발생하지 않음
-    });
+      // 드래그 시작
+      scrollContainer.addEventListener("mousedown", (e) => {
+        isDragging = true;
+        scrollContainer.classList.add("active"); // 스타일 추가
+        startX = e.pageX - scrollContainer.offsetLeft; // 초기 클릭 위치
+        scrollLeft = scrollContainer.scrollLeft; // 초기 스크롤 위치
+      });
 
-    let isDragging = false;
-    let startX;
-    let scrollLeft;
+      // 드래그 중
+      scrollContainer.addEventListener("mousemove", (e) => {
+        if (!isDragging) return;
+        console.log("mousemove 이벤트 발생");
+        const x = e.pageX - scrollContainer.offsetLeft; // 현재 마우스 위치
+        const walk = (x - startX) * 2; // 이동 거리
+        scrollContainer.scrollLeft = scrollLeft - walk; // 스크롤 이동
+      });
 
-    scrollContainer.addEventListener('mousedown', (e) => {
-      isDragging = true;
-      scrollContainer.classList.add('active');
-      startX = e.pageX - scrollContainer.offsetLeft;
-      scrollLeft = scrollContainer.scrollLeft;
-    });
+      // 드래그 종료
+      scrollContainer.addEventListener("mouseup", () => {
+        console.log("mouseup 이벤트 발생");
+        isDragging = false;
+        scrollContainer.classList.remove("active"); // 스타일 제거
+      });
 
-    scrollContainer.addEventListener('mouseleave', () => {
-      isDragging = false;
-    });
-
-    scrollContainer.addEventListener('mouseup', () => {
-      isDragging = false;
-    });
-
-    scrollContainer.addEventListener('mousemove', (e) => {
-      if (!isDragging) return;
-      e.preventDefault();
-      const x = e.pageX - scrollContainer.offsetLeft;
-      const walk = (x - startX) * 2; // 스크롤 속도 조정
-      scrollContainer.scrollLeft = scrollLeft - walk;
+      // 컨테이너를 벗어나면 드래그 종료
+      scrollContainer.addEventListener("mouseleave", () => {
+        console.log("mouseleave 이벤트 발생");
+        isDragging = false;
+        scrollContainer.classList.remove("active"); // 스타일 제거
+      });
     });
   </script>
 
@@ -1011,5 +1029,165 @@
         }, 10);
       });
     });
+  </script>
+
+<script>
+  // 5번 슬라이드 전용 처리
+  const contact = document.querySelector(".swiper-slide.contact");
+
+  if (contact) {
+    const scrollableArea = contact.querySelector(".scroll-wrap"); // 내부 스크롤 영역
+    let startY = 0;
+    let endY = 0;
+    let isScrolling = false;
+
+    contact.addEventListener("touchstart", (e) => {
+      startY = e.touches[0].clientY;
+      isScrolling = false; // 초기화
+      mainSwiper.allowTouchMove = false; // Swiper 이동 차단
+    });
+
+    contact.addEventListener("touchmove", (e) => {
+      if (!scrollableArea) return;
+
+      endY = e.touches[0].clientY;
+
+      const { scrollTop, scrollHeight, clientHeight } = scrollableArea;
+      const deltaY = startY - endY;
+
+      // 내부 스크롤이 가능한 경우 Swiper 비활성화
+      if (
+        (deltaY > 0 && scrollTop + clientHeight < scrollHeight) || // 아래로 스크롤
+        (deltaY < 0 && scrollTop > 0) // 위로 스크롤
+      ) {
+        isScrolling = true; // 스크롤 중
+        mainSwiper.allowTouchMove = false; // Swiper 차단
+      } else {
+        mainSwiper.allowTouchMove = true; // 종점 도달 시 Swiper 허용
+      }
+    });
+
+    contact.addEventListener("touchend", () => {
+      if (!scrollableArea) return;
+
+      const { scrollTop, scrollHeight, clientHeight } = scrollableArea;
+
+      // 스크롤 종점 체크
+      const isAtTop = scrollTop === 0 && endY > startY;
+      const isAtBottom = scrollTop + clientHeight >= scrollHeight && endY < startY;
+
+      if (isScrolling && !(isAtTop || isAtBottom)) {
+        mainSwiper.allowTouchMove = false; // 내부 스크롤 진행 중 Swiper 차단
+      } else {
+        mainSwiper.allowTouchMove = true; // 스크롤 끝났으면 Swiper 허용
+      }
+    });
+  }
+
+  // 다른 슬라이드 처리
+  document.querySelectorAll(".swiper-slide").forEach((slide) => {
+    if (slide.classList.contains("contact")) return;
+
+    let startY = 0;
+    let endY = 0;
+
+    slide.addEventListener("touchstart", (e) => {
+      startY = e.touches[0].clientY;
+    });
+
+    slide.addEventListener("touchmove", (e) => {
+      endY = e.touches[0].clientY;
+    });
+
+    slide.addEventListener("touchend", () => {
+      const deltaY = startY - endY;
+
+      // 슬라이드 전환 조건
+      if (Math.abs(deltaY) > 30) {
+        if (deltaY > 0) {
+          mainSwiper.slideNext();
+        } else {
+          mainSwiper.slidePrev();
+        }
+      }
+    });
+  });
+</script>
+
+
+
+  <script>
+    if (location.pathname.endsWith("index.html") || location.pathname === "/") {
+      console.log("active");
+
+      function headerChange() {
+        const mainSlide = document.querySelector(
+          ".main-slide-container .swiper.containerSwiper .swiper-wrapper .swiper-slide.swiper-slide-active"
+        );
+        const textElements = document.querySelectorAll(
+          ".header .header-top .header-nav-wrap .nav-wrap .nav"
+        );
+        const headerBg = document.querySelector("#header");
+        const headerLogo = document.querySelector(
+          ".header .header-top .com-img-wrap a img"
+        );
+        const callContainer = document.querySelector(
+          ".header .header-top .call-wrap"
+        );
+        const callIcon = document.querySelector(
+          ".header .header-top .call-wrap a i"
+        );
+        const callText = document.querySelector(
+          ".header .header-top .call-wrap a .num"
+        );
+        const header = document.getElementById("header");
+        const headerBody = document.querySelector(".header-top");
+        const mobileMenu = document.querySelector(
+          ".header .header-top .mobile-header-btn .header-btn"
+        );
+
+        if (mainSlide) {
+          const aria = mainSlide.getAttribute("aria-label");
+
+          if (aria === "1 / 5") {
+            console.log("1");
+            textElements.forEach((el) => {
+              el.style.color = ""; // 기본 색상으로 되돌리기
+            });
+            headerLogo.src = "../images/logo_wrap/logo_not_hover.png";
+            callContainer.style.borderColor = "";
+            callIcon.style.color = "";
+            callText.style.color = "";
+            header.style.backgroundColor = "";
+            mobileMenu.style.filter = "";
+
+            header.addEventListener("mouseover", () => {
+              headerLogo.src = "../images/logo_wrap/logo_hover.png";
+            });
+            header.addEventListener("mouseout", () => {
+              headerLogo.src = "../images/logo_wrap/logo_not_hover.png";
+            });
+          } else {
+            textElements.forEach((el) => {
+              el.style.color = "#202020"; // 특정 색상으로 변경
+            });
+            headerLogo.src = "../images/logo_wrap/logo_hover.png";
+            callContainer.style.borderColor = "#5fc700";
+            callIcon.style.color = "#202020";
+            callText.style.color = "#202020";
+            mobileMenu.style.filter = "invert(100%)";
+            header.style.backgroundColor = "#fff";
+            header.addEventListener("mouseover", () => {
+              headerLogo.src = "../images/logo_wrap/logo_hover.png";
+            });
+            header.addEventListener("mouseout", () => {
+              headerLogo.src = "../images/logo_wrap/logo_hover.png";
+            });
+          }
+        }
+      }
+
+
+    }
   </script>
 </html>
