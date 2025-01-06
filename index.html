@@ -134,60 +134,62 @@
                   </div>
                 </a>
               </div>
-              <div class="main-work-wrap">
-                <a href="./about_sub01.html#companyintroduce">
-                  <div class="work-img-wrap">
-                    <img src="./images/work01.png" alt="센터소개" />
+              <div class="scroll-wrap">
+                <div class="main-work-wrap">
+                  <a href="./about_sub01.html#companyintroduce">
+                    <div class="work-img-wrap">
+                      <img src="./images/work01.png" alt="센터소개" />
+                      <div class="text-wrap">
+                        <h3 class="title font-pb">센터소개</h3>
+                        <p class="text font-pl">
+                          환자는 언제든지, 어디서나 나타납니다. <br />
+                          응급상황에 대비해 항시 준비하고 있습니다.
+                        </p>
+                        <i class="xi-long-arrow-right"></i>
+                      </div>
+                    </div>
+                  </a>
+                  <a href="./task_sub01.html" class="even">
+                    <div class="work-img-wrap even">
+                      <img src="./images/work02.png" alt="주요업무" />
+                    </div>
                     <div class="text-wrap">
-                      <h3 class="title font-pb">센터소개</h3>
+                      <h3 class="title font-pb">주요업무</h3>
                       <p class="text font-pl">
-                        환자는 언제든지, 어디서나 나타납니다. <br />
-                        응급상황에 대비해 항시 준비하고 있습니다.
+                        일반적인 환자이송, 행사지원 등 <br />
+                        모든 상황에 대비합니다.
                       </p>
                       <i class="xi-long-arrow-right"></i>
                     </div>
-                  </div>
-                </a>
-                <a href="./task_sub01.html" class="even">
-                  <div class="work-img-wrap even">
-                    <img src="./images/work02.png" alt="주요업무" />
-                  </div>
-                  <div class="text-wrap">
-                    <h3 class="title font-pb">주요업무</h3>
-                    <p class="text font-pl">
-                      일반적인 환자이송, 행사지원 등 <br />
-                      모든 상황에 대비합니다.
-                    </p>
-                    <i class="xi-long-arrow-right"></i>
-                  </div>
-                </a>
-                <a href="./event_sub01.html#event">
-                  <div class="work-img-wrap">
-                    <img src="./images/work03.png" alt="행사지원" />
-                  </div>
-                  <div class="text-wrap">
-                    <h3 class="title font-pb">행사지원</h3>
-                    <p class="text font-pl">
-                      많은 인원이 참여하는 모든 행사에 <br />
-                      인명피해가 없도록 노력합니다.
-                    </p>
-                    <i class="xi-long-arrow-right"></i>
-                  </div>
-                </a>
-                <a href="./cus_center.html#F&Q" class="even">
-                  <div class="work-img-wrap even">
-                    <img src="./images/work04.png" alt="" />
-                  </div>
-                  <div class="text-wrap">
-                    <h3 class="title font-pb">자주묻는 질문</h3>
-                    <p class="text font-pl">
-                      주식회사 24시응급환자이송센터에 <br />
-                      대해 궁금하신가요? <br />
-                      자주묻는 질문을 확인해보세요.
-                    </p>
-                    <i class="xi-long-arrow-right"></i>
-                  </div>
-                </a>
+                  </a>
+                  <a href="./event_sub01.html#event">
+                    <div class="work-img-wrap">
+                      <img src="./images/work03.png" alt="행사지원" />
+                    </div>
+                    <div class="text-wrap">
+                      <h3 class="title font-pb">행사지원</h3>
+                      <p class="text font-pl">
+                        많은 인원이 참여하는 모든 행사에 <br />
+                        인명피해가 없도록 노력합니다.
+                      </p>
+                      <i class="xi-long-arrow-right"></i>
+                    </div>
+                  </a>
+                  <a href="./cus_center.html#F&Q" class="even">
+                    <div class="work-img-wrap even">
+                      <img src="./images/work04.png" alt="" />
+                    </div>
+                    <div class="text-wrap">
+                      <h3 class="title font-pb">자주묻는 질문</h3>
+                      <p class="text font-pl">
+                        주식회사 24시응급환자이송센터에 <br />
+                        대해 궁금하신가요? <br />
+                        자주묻는 질문을 확인해보세요.
+                      </p>
+                      <i class="xi-long-arrow-right"></i>
+                    </div>
+                  </a>
+                </div>
               </div>
             </div>
             <img src="./images/circle-decoration.png" class="circle-deco-2" />
@@ -620,14 +622,25 @@
     // });
 
     // main-work-wrap에서 스크롤 이벤트 처리
-    const mainWorkWrap = document.querySelector(".main-work-wrap");
+    const mainWorkWrap = document.querySelector(".scroll-wrap");
 
-    mainWorkWrap.addEventListener("mouseenter", () => {
+    mainWorkWrap.addEventListener("mouseover", () => {
       mainSwiper.mousewheel.disable(); // Swiper의 mousewheel 비활성화
+      console.log("불가가");
     });
 
-    mainWorkWrap.addEventListener("mouseleave", () => {
+    mainWorkWrap.addEventListener("mouseout", () => {
       mainSwiper.mousewheel.enable(); // Swiper의 mousewheel 활성화
+      console.log("가능");
+    });
+    mainWorkWrap.addEventListener("touchstart", () => {
+      mainSwiper.mousewheel.disable(); // Swiper의 mousewheel 비활성화
+      console.log("터치 시작 - 스크롤 비활성화");
+    });
+
+    mainWorkWrap.addEventListener("touchend", () => {
+      mainSwiper.mousewheel.enable(); // Swiper의 mousewheel 활성화
+      console.log("터치 종료 - 스크롤 활성화");
     });
 
     // mainWorkWrap 내부에서 스크롤 이벤트 제어
@@ -759,24 +772,64 @@
       }
     }
   </script>
+  
+  <script>
+    const scrollContainer = document.querySelector('.scroll-wrap');
+
+    scrollContainer.addEventListener('mousedown', (e) => {
+      e.preventDefault(); // 기본 드래그 동작 방지
+    });
+
+    scrollContainer.addEventListener('mousemove', (e) => {
+      // 드래그 이벤트가 발생하지 않음
+    });
+
+    let isDragging = false;
+    let startX;
+    let scrollLeft;
+
+    scrollContainer.addEventListener('mousedown', (e) => {
+      isDragging = true;
+      scrollContainer.classList.add('active');
+      startX = e.pageX - scrollContainer.offsetLeft;
+      scrollLeft = scrollContainer.scrollLeft;
+    });
+
+    scrollContainer.addEventListener('mouseleave', () => {
+      isDragging = false;
+    });
+
+    scrollContainer.addEventListener('mouseup', () => {
+      isDragging = false;
+    });
+
+    scrollContainer.addEventListener('mousemove', (e) => {
+      if (!isDragging) return;
+      e.preventDefault();
+      const x = e.pageX - scrollContainer.offsetLeft;
+      const walk = (x - startX) * 2; // 스크롤 속도 조정
+      scrollContainer.scrollLeft = scrollLeft - walk;
+    });
+  </script>
 
   <script>
     var swiper = new Swiper(".gallerySwiper", {
-      slidesPerView: 1,
+      slidesPerView: 1.5,
       spaceBetween: 16,
       // 반응형 옵션
       breakpoints: {
         // 768px 이상에서는 3개의 슬라이드를 보여줌
         768: {
-          slidesPerView: 3,
-          spaceBetween: 20,
+          slidesPerView: 2.3,
+          spaceBetween: 24,
         },
         // 1024px 이상에서는 5개의 슬라이드를 보여줌
         1024: {
           slidesPerView: 5,
-          spaceBetween: 30,
+          spaceBetween: 24,
         },
       },
+
       freeMode: true,
       navigation: {
         nextEl: ".swiper-button-next",
