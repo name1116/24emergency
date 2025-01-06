@@ -575,40 +575,190 @@
 
   <!-- Initialize Swiper -->
   <script>
-    var mainSwiper = new Swiper(".containerSwiper", {
-      speed: 500,
-      direction: "vertical",
-      mousewheel: true,
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-      },
-      on: {
-        slideChangeTransitionEnd: () => {
-          headerChange(); // 슬라이드 전환 후 헤더 업데이트
-        },
-        touchEnd: () => {
-          headerChange(); // 터치 끝난 후 헤더 업데이트
-        },
-      },
+    // var mainSwiper = new Swiper(".containerSwiper", {
+    //   speed: 500,
+    //   direction: "vertical",
+    //   mousewheel: true,
+    //   pagination: {
+    //     el: ".swiper-pagination",
+    //     clickable: true,
+    //   },
+    //   on: {
+    //     slideChangeTransitionEnd: () => {
+    //       headerChange(); // 슬라이드 전환 후 헤더 업데이트
+    //     },
+    //     touchEnd: () => {
+    //       headerChange(); // 터치 끝난 후 헤더 업데이트
+    //     },
+    //   },
 
-      preventClicks: false,
-      preventClicksPropagation: false,
-      allowTouchMove: true,
-      on: {
-        touchStart: function (swiper, event) {
-          // 특정 영역 터치 시 Swiper 이동 제한
-          if (event.target.closest(".scroll-wrap")) {
-            swiper.allowTouchMove = false;
-          } else {
-            swiper.allowTouchMove = true;
-          }
-        },
-        touchEnd: function (swiper) {
-          swiper.allowTouchMove = true; // 터치가 끝나면 다시 활성화
-        },
-      },
-    });
+    //   preventClicks: false,
+    //   preventClicksPropagation: false,
+    //   allowTouchMove: true,
+    //   on: {
+    //     touchStart: function (swiper, event) {
+    //       // 특정 영역 터치 시 Swiper 이동 제한
+    //       if (event.target.closest(".scroll-wrap")) {
+    //         swiper.allowTouchMove = false;
+    //       } else {
+    //         swiper.allowTouchMove = true;
+    //       }
+    //     },
+    //     touchEnd: function (swiper) {
+    //       swiper.allowTouchMove = true; // 터치가 끝나면 다시 활성화
+    //     },
+    //   },
+    // });
+
+    // // 5번 슬라이드 전용 처리
+    // const contact = document.querySelector(".swiper-slide.contact");
+
+    // if (contact) {
+    //   const scrollableArea = contact.querySelector(".scroll-wrap"); // 내부 스크롤 영역
+    //   let startY = 0;
+    //   let endY = 0;
+    //   let isScrolling = false;
+
+    //   contact.addEventListener("touchstart", (e) => {
+    //     startY = e.touches[0].clientY;
+    //     isScrolling = false; // 초기화
+    //     mainSwiper.allowTouchMove = false; // Swiper 이동 차단
+    //   });
+
+    //   contact.addEventListener("touchmove", (e) => {
+    //     if (!scrollableArea) return;
+
+    //     endY = e.touches[0].clientY;
+
+    //     const { scrollTop, scrollHeight, clientHeight } = scrollableArea;
+    //     const deltaY = startY - endY;
+
+    //     // 내부 스크롤이 가능한 경우 Swiper 비활성화
+    //     if (
+    //       (deltaY > 0 && scrollTop + clientHeight < scrollHeight) || // 아래로 스크롤
+    //       (deltaY < 0 && scrollTop > 0) // 위로 스크롤
+    //     ) {
+    //       isScrolling = true; // 스크롤 중
+    //       mainSwiper.allowTouchMove = false; // Swiper 차단
+    //     } else {
+    //       mainSwiper.allowTouchMove = true; // 종점 도달 시 Swiper 허용
+    //     }
+    //   });
+
+    //   contact.addEventListener("touchend", () => {
+    //     if (!scrollableArea) return;
+
+    //     const { scrollTop, scrollHeight, clientHeight } = scrollableArea;
+
+    //     // 스크롤 종점 체크
+    //     const isAtTop = scrollTop === 0 && endY > startY;
+    //     const isAtBottom =
+    //       scrollTop + clientHeight >= scrollHeight && endY < startY;
+
+    //     if (isScrolling && !(isAtTop || isAtBottom)) {
+    //       mainSwiper.allowTouchMove = false; // 내부 스크롤 진행 중 Swiper 차단
+    //     } else {
+    //       mainSwiper.allowTouchMove = true; // 스크롤 끝났으면 Swiper 허용
+    //     }
+    //   });
+    // }
+
+    // // 다른 슬라이드 처리
+    // document.querySelectorAll(".swiper-slide").forEach((slide) => {
+    //   if (slide.classList.contains("contact")) return;
+
+    //   let startY = 0;
+    //   let endY = 0;
+
+    //   slide.addEventListener("touchstart", (e) => {
+    //     startY = e.touches[0].clientY;
+    //   });
+
+    //   slide.addEventListener("touchmove", (e) => {
+    //     endY = e.touches[0].clientY;
+    //   });
+
+    //   slide.addEventListener("touchend", () => {
+    //     const deltaY = startY - endY;
+
+    //     // 슬라이드 전환 조건
+    //     if (Math.abs(deltaY) > 30) {
+    //       if (deltaY > 0) {
+    //         mainSwiper.slideNext();
+    //       } else {
+    //         mainSwiper.slidePrev();
+    //       }
+    //     }
+    //   });
+    // });
+
+    var mainSwiper = new Swiper(".containerSwiper", {
+  speed: 500,
+  direction: "vertical",
+  mousewheel: true,
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+  allowTouchMove: true, // 초기값은 터치 허용
+});
+
+// 모든 슬라이드를 순회
+const slides = document.querySelectorAll(".swiper-slide");
+
+slides.forEach((slide) => {
+  const scrollableArea = slide.querySelector(".scroll-wrap");
+
+  let startY = 0;
+  let endY = 0;
+
+  // 슬라이드 시작 시점 처리
+  slide.addEventListener("touchstart", (e) => {
+    startY = e.touches[0].clientY;
+
+    // 스크롤 가능한 영역이 있는 경우 Swiper 이동을 차단
+    if (scrollableArea) {
+      mainSwiper.allowTouchMove = false;
+    }
+  });
+
+  // 슬라이드 이동 중 처리
+  slide.addEventListener("touchmove", (e) => {
+    if (!scrollableArea) {
+      // 스크롤 가능한 영역이 없으면 Swiper 터치를 활성화
+      mainSwiper.allowTouchMove = true;
+      return;
+    }
+
+    endY = e.touches[0].clientY;
+
+    const { scrollTop, scrollHeight, clientHeight } = scrollableArea;
+    const deltaY = startY - endY;
+
+    const isScrollable = scrollHeight > clientHeight; // 스크롤 가능 여부 확인
+    const isAtTop = scrollTop === 0 && deltaY < 0; // 맨 위에서 위로 스크롤
+    const isAtBottom =
+      scrollTop + clientHeight >= scrollHeight && deltaY > 0; // 맨 아래에서 아래로 스크롤
+
+    if (isScrollable && !(isAtTop || isAtBottom)) {
+      mainSwiper.allowTouchMove = false; // 내부 스크롤 중 Swiper 차단
+    } else {
+      mainSwiper.allowTouchMove = true; // 맨 위/아래 도달 시 Swiper 허용
+    }
+  });
+
+  // 터치가 끝날 때 처리
+  slide.addEventListener("touchend", () => {
+    if (!scrollableArea) return;
+
+    const { scrollTop, scrollHeight, clientHeight } = scrollableArea;
+    const isAtTop = scrollTop === 0;
+    const isAtBottom = scrollTop + clientHeight >= scrollHeight;
+
+    // 내부 스크롤이 끝났거나 맨 위/맨 아래에 도달했으면 Swiper 이동 허용
+    mainSwiper.allowTouchMove = isAtTop || isAtBottom;
+  });
+});
 
     // const overviewSlide = document.querySelector(
     //   ".swiper-slide.overview .main-flex-container"
@@ -1031,91 +1181,6 @@
     });
   </script>
 
-<script>
-  // 5번 슬라이드 전용 처리
-  const contact = document.querySelector(".swiper-slide.contact");
-
-  if (contact) {
-    const scrollableArea = contact.querySelector(".scroll-wrap"); // 내부 스크롤 영역
-    let startY = 0;
-    let endY = 0;
-    let isScrolling = false;
-
-    contact.addEventListener("touchstart", (e) => {
-      startY = e.touches[0].clientY;
-      isScrolling = false; // 초기화
-      mainSwiper.allowTouchMove = false; // Swiper 이동 차단
-    });
-
-    contact.addEventListener("touchmove", (e) => {
-      if (!scrollableArea) return;
-
-      endY = e.touches[0].clientY;
-
-      const { scrollTop, scrollHeight, clientHeight } = scrollableArea;
-      const deltaY = startY - endY;
-
-      // 내부 스크롤이 가능한 경우 Swiper 비활성화
-      if (
-        (deltaY > 0 && scrollTop + clientHeight < scrollHeight) || // 아래로 스크롤
-        (deltaY < 0 && scrollTop > 0) // 위로 스크롤
-      ) {
-        isScrolling = true; // 스크롤 중
-        mainSwiper.allowTouchMove = false; // Swiper 차단
-      } else {
-        mainSwiper.allowTouchMove = true; // 종점 도달 시 Swiper 허용
-      }
-    });
-
-    contact.addEventListener("touchend", () => {
-      if (!scrollableArea) return;
-
-      const { scrollTop, scrollHeight, clientHeight } = scrollableArea;
-
-      // 스크롤 종점 체크
-      const isAtTop = scrollTop === 0 && endY > startY;
-      const isAtBottom = scrollTop + clientHeight >= scrollHeight && endY < startY;
-
-      if (isScrolling && !(isAtTop || isAtBottom)) {
-        mainSwiper.allowTouchMove = false; // 내부 스크롤 진행 중 Swiper 차단
-      } else {
-        mainSwiper.allowTouchMove = true; // 스크롤 끝났으면 Swiper 허용
-      }
-    });
-  }
-
-  // 다른 슬라이드 처리
-  document.querySelectorAll(".swiper-slide").forEach((slide) => {
-    if (slide.classList.contains("contact")) return;
-
-    let startY = 0;
-    let endY = 0;
-
-    slide.addEventListener("touchstart", (e) => {
-      startY = e.touches[0].clientY;
-    });
-
-    slide.addEventListener("touchmove", (e) => {
-      endY = e.touches[0].clientY;
-    });
-
-    slide.addEventListener("touchend", () => {
-      const deltaY = startY - endY;
-
-      // 슬라이드 전환 조건
-      if (Math.abs(deltaY) > 30) {
-        if (deltaY > 0) {
-          mainSwiper.slideNext();
-        } else {
-          mainSwiper.slidePrev();
-        }
-      }
-    });
-  });
-</script>
-
-
-
   <script>
     if (location.pathname.endsWith("index.html") || location.pathname === "/") {
       console.log("active");
@@ -1186,8 +1251,6 @@
           }
         }
       }
-
-
     }
   </script>
 </html>
