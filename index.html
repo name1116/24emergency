@@ -7,7 +7,23 @@
     content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=1.0, user-scalable=0"
   />
 
-  <title></title>
+  <link rel="canonical" href="" />
+<meta name="robots" content="index,follow" />
+<meta name="subject" content="24시응급환자이송센터" />
+<meta name="title" content="24시응급환자이송센터" />
+<meta name="author" content="24시응급환자이송센터">
+<meta name="description" content="서울에 소재한 응급환자이송센터 입니다. 사설구급차 환자이송 행사의료지원 전문업체"/>
+<meta name="keywords" content="24시응급환자이송센터" />
+
+<meta property="og:type" content="website" />
+<meta property="og:rich_attachment" content="true" />
+<meta property="og:site_name" content="24시응급환자이송센터" />
+<meta property="og:title" content="24시응급환자이송센터" />
+<meta property="og:description" content="서울에 소재한 응급환자이송센터 입니다. 사설구급차 환자이송 행사의료지원 전문업체" />
+<meta property="og:image" content="/images/sns_thumbnail.png" />
+<meta property="og:url" content="" />
+
+  <title>24시응급환자이송센터</title>
   <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon" />
   <link
     rel="stylesheet"
@@ -703,30 +719,28 @@
   allowTouchMove: true, // 초기값은 터치 허용
 });
 
-// 모든 슬라이드를 순회
-const slides = document.querySelectorAll(".swiper-slide");
+// 모든 슬라이드를 순회하며 이벤트 설정
+const slides = document.querySelectorAll(".containerSwiper .swiper-slide");
 
 slides.forEach((slide) => {
-  const scrollableArea = slide.querySelector(".scroll-wrap");
+  const scrollableArea = slide.querySelector(".slide-gallery");
 
   let startY = 0;
   let endY = 0;
 
-  // 슬라이드 시작 시점 처리
+  // 터치 시작 처리
   slide.addEventListener("touchstart", (e) => {
     startY = e.touches[0].clientY;
 
-    // 스크롤 가능한 영역이 있는 경우 Swiper 이동을 차단
     if (scrollableArea) {
-      mainSwiper.allowTouchMove = false;
+      mainSwiper.allowTouchMove = false; // 내부 스크롤이 있는 경우 Swiper 차단
     }
   });
 
-  // 슬라이드 이동 중 처리
+  // 터치 이동 처리
   slide.addEventListener("touchmove", (e) => {
     if (!scrollableArea) {
-      // 스크롤 가능한 영역이 없으면 Swiper 터치를 활성화
-      mainSwiper.allowTouchMove = true;
+      mainSwiper.allowTouchMove = true; // 내부 스크롤이 없으면 Swiper 활성화
       return;
     }
 
@@ -735,27 +749,28 @@ slides.forEach((slide) => {
     const { scrollTop, scrollHeight, clientHeight } = scrollableArea;
     const deltaY = startY - endY;
 
-    const isScrollable = scrollHeight > clientHeight; // 스크롤 가능 여부 확인
+    const isScrollable = scrollHeight > clientHeight; // 내부 스크롤 가능 여부
     const isAtTop = scrollTop === 0 && deltaY < 0; // 맨 위에서 위로 스크롤
     const isAtBottom =
       scrollTop + clientHeight >= scrollHeight && deltaY > 0; // 맨 아래에서 아래로 스크롤
 
     if (isScrollable && !(isAtTop || isAtBottom)) {
-      mainSwiper.allowTouchMove = false; // 내부 스크롤 중 Swiper 차단
+      mainSwiper.allowTouchMove = false; // 내부 스크롤 진행 중 Swiper 차단
     } else {
-      mainSwiper.allowTouchMove = true; // 맨 위/아래 도달 시 Swiper 허용
+      mainSwiper.allowTouchMove = true; // 스크롤 끝에 도달하면 Swiper 활성화
     }
   });
 
-  // 터치가 끝날 때 처리
+  // 터치 종료 처리
   slide.addEventListener("touchend", () => {
     if (!scrollableArea) return;
 
     const { scrollTop, scrollHeight, clientHeight } = scrollableArea;
+
     const isAtTop = scrollTop === 0;
     const isAtBottom = scrollTop + clientHeight >= scrollHeight;
 
-    // 내부 스크롤이 끝났거나 맨 위/맨 아래에 도달했으면 Swiper 이동 허용
+    // 내부 스크롤이 끝났거나 맨 위/맨 아래에 도달하면 Swiper 이동 허용
     mainSwiper.allowTouchMove = isAtTop || isAtBottom;
   });
 });
