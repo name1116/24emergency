@@ -5052,7 +5052,7 @@ body {
   }
   .swiper-slide.gallery .gallery-info-wrap .text-wrap .text {
     margin-top: 24px;
-    font-size: 13px;
+    font-size: 13px !important;
   }
   .swiper-slide.gallery .gallery-info-wrap .btn-container {
     margin-top: 40px;
@@ -6762,5 +6762,9 @@ body {
   }
   .gallery-section .gallery-main .gallery-content .img-wrap img {
     border-radius: 4px;
+  }
+  .main-slide-container .containerSwiper .swiper-wrapper .swiper-slide.overview .main-flex-container .main-text-wrap {
+    margin-left: 0px;
+    margin-right: 0px;
   }
 }
