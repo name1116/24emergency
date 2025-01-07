@@ -708,7 +708,8 @@
     //   });
     // });
 
-    var mainSwiper = new Swiper(".containerSwiper", {
+// Swiper 초기화
+const mainSwiper = new Swiper(".containerSwiper", {
   speed: 500,
   direction: "vertical",
   mousewheel: true,
@@ -716,14 +717,14 @@
     el: ".swiper-pagination",
     clickable: true,
   },
-  allowTouchMove: true, // 초기값은 터치 허용
+  allowTouchMove: true, // 초기 터치 허용
 });
 
 // 모든 슬라이드를 순회하며 이벤트 설정
 const slides = document.querySelectorAll(".containerSwiper .swiper-slide");
 
 slides.forEach((slide) => {
-  const scrollableArea = slide.querySelector(".slide-gallery");
+  const scrollableArea = slide; // 슬라이드 자체를 scrollableArea로 사용
 
   let startY = 0;
   let endY = 0;
@@ -732,21 +733,19 @@ slides.forEach((slide) => {
   slide.addEventListener("touchstart", (e) => {
     startY = e.touches[0].clientY;
 
-    if (scrollableArea) {
-      mainSwiper.allowTouchMove = false; // 내부 스크롤이 있는 경우 Swiper 차단
+    // 내부 스크롤이 있는 경우 Swiper 터치 이동 차단
+    const { scrollHeight, clientHeight } = scrollableArea;
+
+    if (scrollHeight > clientHeight) {
+      mainSwiper.allowTouchMove = false;
     }
   });
 
   // 터치 이동 처리
   slide.addEventListener("touchmove", (e) => {
-    if (!scrollableArea) {
-      mainSwiper.allowTouchMove = true; // 내부 스크롤이 없으면 Swiper 활성화
-      return;
-    }
+    const { scrollTop, scrollHeight, clientHeight } = scrollableArea;
 
     endY = e.touches[0].clientY;
-
-    const { scrollTop, scrollHeight, clientHeight } = scrollableArea;
     const deltaY = startY - endY;
 
     const isScrollable = scrollHeight > clientHeight; // 내부 스크롤 가능 여부
@@ -757,14 +756,12 @@ slides.forEach((slide) => {
     if (isScrollable && !(isAtTop || isAtBottom)) {
       mainSwiper.allowTouchMove = false; // 내부 스크롤 진행 중 Swiper 차단
     } else {
-      mainSwiper.allowTouchMove = true; // 스크롤 끝에 도달하면 Swiper 활성화
+      mainSwiper.allowTouchMove = true; // 맨 위/맨 아래에서 Swiper 활성화
     }
   });
 
   // 터치 종료 처리
   slide.addEventListener("touchend", () => {
-    if (!scrollableArea) return;
-
     const { scrollTop, scrollHeight, clientHeight } = scrollableArea;
 
     const isAtTop = scrollTop === 0;
@@ -774,6 +771,7 @@ slides.forEach((slide) => {
     mainSwiper.allowTouchMove = isAtTop || isAtBottom;
   });
 });
+
 
     // const overviewSlide = document.querySelector(
     //   ".swiper-slide.overview .main-flex-container"
