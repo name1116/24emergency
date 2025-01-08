@@ -1,45 +1,54 @@
 <!DOCTYPE html>
 <html lang="ko">
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=1.0, user-scalable=0"
-  />
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=1.0, user-scalable=0"
+    />
 
-  <link rel="canonical" href="" />
-<meta name="robots" content="index,follow" />
-<meta name="subject" content="24시응급환자이송센터" />
-<meta name="title" content="24시응급환자이송센터" />
-<meta name="author" content="24시응급환자이송센터">
-<meta name="description" content="서울에 소재한 응급환자이송센터 입니다. 사설구급차 환자이송 행사의료지원 전문업체"/>
-<meta name="keywords" content="24시응급환자이송센터" />
+    <link rel="canonical" href="https://sos1339.co.kr/" />
+    <meta name="robots" content="index,follow" />
+    <meta name="subject" content="24시응급환자이송센터" />
+    <meta name="title" content="24시응급환자이송센터" />
+    <meta name="author" content="24시응급환자이송센터" />
+    <meta
+      name="description"
+      content="서울에 소재한 응급환자이송센터 입니다. 사설구급차 환자이송 행사의료지원 전문업체"
+    />
+    <meta name="keywords" content="24시응급환자이송센터" />
 
-<meta property="og:type" content="website" />
-<meta property="og:rich_attachment" content="true" />
-<meta property="og:site_name" content="24시응급환자이송센터" />
-<meta property="og:title" content="24시응급환자이송센터" />
-<meta property="og:description" content="서울에 소재한 응급환자이송센터 입니다. 사설구급차 환자이송 행사의료지원 전문업체" />
-<meta property="og:image" content="/images/sns_thumbnail.png" />
-<meta property="og:url" content="" />
+    <meta property="og:type" content="website" />
+    <meta property="og:rich_attachment" content="true" />
+    <meta property="og:site_name" content="24시응급환자이송센터" />
+    <meta property="og:title" content="24시응급환자이송센터" />
+    <meta
+      property="og:description"
+      content="서울에 소재한 응급환자이송센터 입니다. 사설구급차 환자이송 행사의료지원 전문업체"
+    />
+    <meta property="og:image" content="/images/sns_thumbnail.png" />
+    <meta property="og:url" content="https://sos1339.co.kr/" />
 
-  <title>24시응급환자이송센터</title>
-  <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon" />
-  <link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
-  />
-  <link
-    rel="stylesheet"
-    href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css"
-  />
-  <link rel="stylesheet" type="text/css" href="./css/common.css" />
-  <link rel="stylesheet" type="text/css" href="./css/style.css" />
+    <title>24시응급환자이송센터</title>
+    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css"
+    />
+    <link rel="stylesheet" type="text/css" href="./css/common.css" />
+    <link rel="stylesheet" type="text/css" href="./css/style.css" />
+    <link rel="stylesheet" type="text/css" href="./css/xeicon.min.css" />
+  </head>
 
   <body>
     <section class="main-slide-container">
+      <div id="header"></div>
       <div class="swiper containerSwiper">
-        <div id="header"></div>
         <div class="swiper-wrapper">
           <div class="swiper-slide">
             <div class="video-container">
@@ -542,44 +551,57 @@
     </section>
 
     <!-- 팝업 -->
-    <!-- 
+
     <div class="pop-parent" id="popParent">
-        <div class="pop">
-            <div class="swiper-container">
-                <div class="swiper popupSwiper">
-                    <div class="swiper-wrapper">
-                        <a href="{{$item->link}}" class="swiper-slide" target="_blank">
-                            <div class="m-ratioBox-wrap">
-                                <div class="m-ratioBox">
-                                    <img src="https://admin.hielpay.com/storage/popup/1698050140_open-popup2.jpg" alt="">
-                                </div>
-                            </div>
-                        </a>
-                    </div>
+      <div class="pop">
+        <div class="swiper-container">
+          <div class="swiper popupSwiper">
+            <div class="swiper-wrapper">
+              <a href="{{$item->link}}" class="swiper-slide" target="_blank">
+                <div class="m-ratioBox-wrap">
+                  <div class="m-ratioBox">
+                    <img
+                      src="https://admin.hielpay.com/storage/popup/1698050140_open-popup2.jpg"
+                      alt=""
+                    />
+                  </div>
                 </div>
-
-                <div class="swiper-control">
-                    <div class="swiper-pagination"></div>
+              </a>
+              <a href="{{$item->link}}" class="swiper-slide" target="_blank">
+                <div class="m-ratioBox-wrap">
+                  <div class="m-ratioBox">
+                    <img
+                      src="https://admin.hielpay.com/storage/popup/1698050140_open-popup2.jpg"
+                      alt=""
+                    />
+                  </div>
                 </div>
-
-                <div class="pop-btns">
-                    <input type="checkbox" name="oneday" id="oneday_check">
-                    <label for="oneday_check">
-                        <span class="icon"></span> 오늘하루 보지 않기
-                    </label>
-
-                    <button class="btn-toggle">
-                        <i class="xi-angle-up" style="color:#fff;"></i>
-                    </button>
-
-                    <button class="btn-close" onclick="nonePopup()">
-                        <i class="xi-close" style="color:#fff;"></i>
-                    </button>
-                </div>
+              </a>
             </div>
+          </div>
+
+          <div class="swiper-control">
+            <div class="swiper-pagination"></div>
+          </div>
+
+          <div class="pop-btns">
+            <input type="checkbox" name="oneday" id="oneday_check" />
+            <label for="oneday_check">
+              <span class="icon"></span> 오늘하루 보지 않기
+            </label>
+
+            <button class="btn-toggle">
+              <i class="xi-angle-up" style="color: #fff"></i>
+            </button>
+
+            <button class="btn-close" onclick="nonePopup()">
+              <i class="xi-close" style="color: #fff"></i>
+            </button>
+          </div>
         </div>
-    </div> 
-    -->
+      </div>
+    </div>
+
     <!-- //팝업 -->
   </body>
 
@@ -591,213 +613,185 @@
 
   <!-- Initialize Swiper -->
   <script>
-    // var mainSwiper = new Swiper(".containerSwiper", {
-    //   speed: 500,
-    //   direction: "vertical",
-    //   mousewheel: true,
-    //   pagination: {
-    //     el: ".swiper-pagination",
-    //     clickable: true,
-    //   },
-    //   on: {
-    //     slideChangeTransitionEnd: () => {
-    //       headerChange(); // 슬라이드 전환 후 헤더 업데이트
-    //     },
-    //     touchEnd: () => {
-    //       headerChange(); // 터치 끝난 후 헤더 업데이트
-    //     },
-    //   },
 
-    //   preventClicks: false,
-    //   preventClicksPropagation: false,
-    //   allowTouchMove: true,
-    //   on: {
-    //     touchStart: function (swiper, event) {
-    //       // 특정 영역 터치 시 Swiper 이동 제한
-    //       if (event.target.closest(".scroll-wrap")) {
-    //         swiper.allowTouchMove = false;
-    //       } else {
-    //         swiper.allowTouchMove = true;
-    //       }
-    //     },
-    //     touchEnd: function (swiper) {
-    //       swiper.allowTouchMove = true; // 터치가 끝나면 다시 활성화
-    //     },
-    //   },
-    // });
+    // Swiper 초기화 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    const mainSwiper = new Swiper(".containerSwiper", {
+      speed: 500,
+      direction: "vertical",
+      mousewheel: true,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      allowTouchMove: true, // 초기 터치 허용
+    });
 
-    // // 5번 슬라이드 전용 처리
-    // const contact = document.querySelector(".swiper-slide.contact");
+    // 모든 슬라이드를 순회하며 이벤트 설정
+    // const slides = document.querySelectorAll(".containerSwiper .swiper-slide");
 
-    // if (contact) {
-    //   const scrollableArea = contact.querySelector(".scroll-wrap"); // 내부 스크롤 영역
+    // slides.forEach((slide) => {
+    //   const scrollableArea = slide; // 슬라이드 자체를 scrollableArea로 사용
+
     //   let startY = 0;
     //   let endY = 0;
-    //   let isScrolling = false;
 
-    //   contact.addEventListener("touchstart", (e) => {
+    //   // 터치 시작 처리
+    //   scrollableArea.addEventListener("touchstart", (e) => {
     //     startY = e.touches[0].clientY;
-    //     isScrolling = false; // 초기화
-    //     mainSwiper.allowTouchMove = false; // Swiper 이동 차단
+
+    //     // 내부 스크롤이 있는 경우 Swiper 터치 이동 차단
+    //     const { scrollHeight, clientHeight } = scrollableArea;
+
+    //     if (scrollHeight > clientHeight) {
+    //       mainSwiper.allowTouchMove = false;
+    //     }
+
     //   });
 
-    //   contact.addEventListener("touchmove", (e) => {
-    //     if (!scrollableArea) return;
+    //   // 터치 이동 처리
+    //   scrollableArea.addEventListener("touchmove", (e) => {
+    //     const { scrollTop, scrollHeight, clientHeight } = scrollableArea;
+    //     console.log("sT : " + scrollTop); //위에서부터 얼마나 떨어져 있는지
+    //     console.log("sH : " + scrollHeight); // 실제 페이지 height
+    //     console.log("cH : " + clientHeight); // 기기 화면 height
 
     //     endY = e.touches[0].clientY;
-
-    //     const { scrollTop, scrollHeight, clientHeight } = scrollableArea;
     //     const deltaY = startY - endY;
 
-    //     // 내부 스크롤이 가능한 경우 Swiper 비활성화
-    //     if (
-    //       (deltaY > 0 && scrollTop + clientHeight < scrollHeight) || // 아래로 스크롤
-    //       (deltaY < 0 && scrollTop > 0) // 위로 스크롤
-    //     ) {
-    //       isScrolling = true; // 스크롤 중
-    //       mainSwiper.allowTouchMove = false; // Swiper 차단
-    //     } else {
-    //       mainSwiper.allowTouchMove = true; // 종점 도달 시 Swiper 허용
-    //     }
-    //   });
-
-    //   contact.addEventListener("touchend", () => {
-    //     if (!scrollableArea) return;
-
-    //     const { scrollTop, scrollHeight, clientHeight } = scrollableArea;
-
-    //     // 스크롤 종점 체크
-    //     const isAtTop = scrollTop === 0 && endY > startY;
+    //     const isScrollable = scrollHeight > clientHeight; // 내부 스크롤 가능 여부
+    //     const isAtTop = scrollTop === 0 && deltaY < 0; // 맨 위에서 위로 스크롤
     //     const isAtBottom =
-    //       scrollTop + clientHeight >= scrollHeight && endY < startY;
+    //       scrollTop + clientHeight >= scrollHeight && deltaY > 0; // 맨 아래에서 아래로 스크롤
 
-    //     if (isScrolling && !(isAtTop || isAtBottom)) {
+    //     if (isScrollable && !(isAtTop || isAtBottom)) {
     //       mainSwiper.allowTouchMove = false; // 내부 스크롤 진행 중 Swiper 차단
     //     } else {
-    //       mainSwiper.allowTouchMove = true; // 스크롤 끝났으면 Swiper 허용
+    //       mainSwiper.allowTouchMove = true; // 맨 위/맨 아래에서 Swiper 활성화
     //     }
     //   });
-    // }
 
-    // // 다른 슬라이드 처리
-    // document.querySelectorAll(".swiper-slide").forEach((slide) => {
-    //   if (slide.classList.contains("contact")) return;
+    //   // 터치 종료 처리
+    //   scrollableArea.addEventListener("touchend", () => {
+    //     const { scrollTop, scrollHeight, clientHeight } = scrollableArea;
+
+    //     const isAtTop = scrollTop === 0;
+    //     const isAtBottom = scrollTop + clientHeight >= scrollHeight;
+
+    //     // 내부 스크롤이 끝났거나 맨 위/맨 아래에 도달하면 Swiper 이동 허용
+    //     mainSwiper.allowTouchMove = isAtTop || isAtBottom;
+    //   });
+    // });
+
+    const slides = document.querySelectorAll(".containerSwiper .swiper-slide");
+
+    slides.forEach((slide) => {
+      const scrollableArea = slide; // 슬라이드 자체를 scrollableArea로 사용
+      const tolerance = 5; // 오차 범위 ±5 설정
+
+      let startY = 0;
+      let endY = 0;
+
+      // 터치 시작 처리
+      scrollableArea.addEventListener("touchstart", (e) => {
+        startY = e.touches[0].clientY;
+        const { scrollHeight, clientHeight } = scrollableArea;
+
+        // 내부 스크롤이 가능한 경우 Swiper 이동 차단
+        if (scrollHeight > clientHeight) {
+          mainSwiper.allowTouchMove = false;
+        }
+      });
+
+      // 터치 이동 처리
+      scrollableArea.addEventListener("touchmove", (e) => {
+        const { scrollTop, scrollHeight, clientHeight } = scrollableArea;
+        endY = e.touches[0].clientY;
+        const deltaY = startY - endY;
+
+        console.log("sT : " + scrollTop); // 위에서부터 얼마나 떨어져 있는지
+        console.log("sH : " + scrollHeight); // 실제 페이지 height
+        console.log("cH : " + clientHeight); // 기기 화면 height
+        console.log("스타트Y :" + startY);
+        console.log("엔드Y :" + endY);
+        console.log("델타Y :" + deltaY);
+
+        // 맨 위와 맨 아래 위치 확인 (오차 허용)
+        const isAtTop = scrollTop >= 0 && scrollTop <= tolerance && deltaY < 0; // 맨 위에서 아래로 스크롤
+        const isAtBottom =
+          Math.abs(scrollTop - (scrollHeight - clientHeight)) <= tolerance &&
+          deltaY > 0; // 맨 아래에서 위로 스크롤
+
+        if (isAtTop || isAtBottom) {
+          mainSwiper.allowTouchMove = true; // Swiper 이동 활성화
+        } else {
+          mainSwiper.allowTouchMove = false; // 내부 스크롤 진행 중 Swiper 차단
+        }
+      });
+
+      // 터치 종료 처리
+      scrollableArea.addEventListener("touchend", () => {
+        const { scrollTop, scrollHeight, clientHeight } = scrollableArea;
+
+        // 맨 위와 맨 아래 위치 확인 (오차 허용)
+        const isAtTop = scrollTop >= 0 && scrollTop <= tolerance; // 맨 위
+        const isAtBottom =
+          Math.abs(scrollTop - (scrollHeight - clientHeight)) <= tolerance; // 맨 아래
+
+        mainSwiper.allowTouchMove = isAtTop || isAtBottom;
+      });
+    });
+
+    // const slides = document.querySelectorAll(".containerSwiper .swiper-slide");
+
+    // slides.forEach((slide) => {
+    //   const scrollableArea = slide; // 슬라이드 자체를 scrollableArea로 사용
+    //   const tolerance = 10; // 오차 범위 ±5 설정
 
     //   let startY = 0;
     //   let endY = 0;
 
-    //   slide.addEventListener("touchstart", (e) => {
+    //   // 터치 시작 처리
+    //   scrollableArea.addEventListener("touchstart", (e) => {
     //     startY = e.touches[0].clientY;
-    //   });
+    //     const { scrollHeight, clientHeight } = scrollableArea;
 
-    //   slide.addEventListener("touchmove", (e) => {
-    //     endY = e.touches[0].clientY;
-    //   });
-
-    //   slide.addEventListener("touchend", () => {
-    //     const deltaY = startY - endY;
-
-    //     // 슬라이드 전환 조건
-    //     if (Math.abs(deltaY) > 30) {
-    //       if (deltaY > 0) {
-    //         mainSwiper.slideNext();
-    //       } else {
-    //         mainSwiper.slidePrev();
-    //       }
+    //     if (scrollHeight > clientHeight) {
+    //       mainSwiper.allowTouchMove = false;
     //     }
     //   });
-    // });
 
-// Swiper 초기화
-const mainSwiper = new Swiper(".containerSwiper", {
-  speed: 500,
-  direction: "vertical",
-  mousewheel: true,
-  pagination: {
-    el: ".swiper-pagination",
-    clickable: true,
-  },
-  allowTouchMove: true, // 초기 터치 허용
-});
+    //   // 터치 이동 처리
+    //   scrollableArea.addEventListener("touchmove", (e) => {
+    //     const { scrollTop, scrollHeight, clientHeight } = scrollableArea;
+    //     endY = e.touches[0].clientY;
 
-// 모든 슬라이드를 순회하며 이벤트 설정
-const slides = document.querySelectorAll(".containerSwiper .swiper-slide");
+    //     console.log("sT : " + scrollTop); // 현재 스크롤 위치
+    //     console.log("sH : " + scrollHeight); // 전체 높이
+    //     console.log("cH : " + clientHeight); // 화면 높이
 
-slides.forEach((slide) => {
-  const scrollableArea = slide; // 슬라이드 자체를 scrollableArea로 사용
+    //     // 맨 위와 맨 아래 위치 확인 (오차 허용)
+    //     const isAtTop = scrollTop === 0 && deltaY < 0; // 맨 위
+    //     const isAtBottom =
+    //       Math.abs(scrollTop - (scrollHeight - clientHeight)) <= tolerance; // 맨 아래
 
-  let startY = 0;
-  let endY = 0;
+    //     if (isAtTop || isAtBottom) {
+    //       mainSwiper.allowTouchMove = true; // Swiper 이동 활성화
+    //     } else {
+    //       mainSwiper.allowTouchMove = false; // 내부 스크롤 진행 중 Swiper 차단
+    //     }
+    //   });
 
-  // 터치 시작 처리
-  slide.addEventListener("touchstart", (e) => {
-    startY = e.touches[0].clientY;
+    //   // 터치 종료 처리
+    //   scrollableArea.addEventListener("touchend", () => {
+    //     const { scrollTop, scrollHeight, clientHeight } = scrollableArea;
 
-    // 내부 스크롤이 있는 경우 Swiper 터치 이동 차단
-    const { scrollHeight, clientHeight } = scrollableArea;
+    //     // 맨 위나 맨 아래 위치 확인 (오차 허용)
+    //     const isAtTop = scrollTop >= 0 && scrollTop <= tolerance; // 맨 위
+    //     const isAtBottom =
+    //       Math.abs(scrollTop - (scrollHeight - clientHeight)) <= tolerance; // 맨 아래
 
-    if (scrollHeight > clientHeight) {
-      mainSwiper.allowTouchMove = false;
-    }
-  });
-
-  // 터치 이동 처리
-  slide.addEventListener("touchmove", (e) => {
-    const { scrollTop, scrollHeight, clientHeight } = scrollableArea;
-
-    endY = e.touches[0].clientY;
-    const deltaY = startY - endY;
-
-    const isScrollable = scrollHeight > clientHeight; // 내부 스크롤 가능 여부
-    const isAtTop = scrollTop === 0 && deltaY < 0; // 맨 위에서 위로 스크롤
-    const isAtBottom =
-      scrollTop + clientHeight >= scrollHeight && deltaY > 0; // 맨 아래에서 아래로 스크롤
-
-    if (isScrollable && !(isAtTop || isAtBottom)) {
-      mainSwiper.allowTouchMove = false; // 내부 스크롤 진행 중 Swiper 차단
-    } else {
-      mainSwiper.allowTouchMove = true; // 맨 위/맨 아래에서 Swiper 활성화
-    }
-  });
-
-  // 터치 종료 처리
-  slide.addEventListener("touchend", () => {
-    const { scrollTop, scrollHeight, clientHeight } = scrollableArea;
-
-    const isAtTop = scrollTop === 0;
-    const isAtBottom = scrollTop + clientHeight >= scrollHeight;
-
-    // 내부 스크롤이 끝났거나 맨 위/맨 아래에 도달하면 Swiper 이동 허용
-    mainSwiper.allowTouchMove = isAtTop || isAtBottom;
-  });
-});
-
-
-    // const overviewSlide = document.querySelector(
-    //   ".swiper-slide.overview .main-flex-container"
-    // );
-
-    // overviewSlide.addEventListener("mouseenter", () => {
-    //   mainSwiper.mousewheel.disable(); // 내부에 진입 시 Swiper 비활성화
-    // });
-
-    // overviewSlide.addEventListener("mouseleave", () => {
-    //   mainSwiper.mousewheel.enable(); // 외부로 나가면 Swiper 활성화
-    // });
-
-    // overviewSlide.addEventListener("wheel", (e) => {
-    //   const { scrollTop, scrollHeight, clientHeight } = overviewSlide;
-    //   const isAtTop = scrollTop === 0 && e.deltaY < 0;
-    //   const isAtBottom =
-    //     scrollTop + clientHeight >= scrollHeight && e.deltaY > 0;
-
-    //   if (!isAtTop && !isAtBottom) {
-    //     // 슬라이드 내부에서 스크롤 가능하도록 이벤트 중지
-    //     e.stopPropagation();
-    //   } else {
-    //     // 위/아래 끝에 도달했을 경우 Swiper로 이벤트 전달
-    //     mainSwiper.mousewheel.enable();
-    //   }
+    //     mainSwiper.allowTouchMove = isAtTop || isAtBottom;
+    //   });
     // });
 
     // main-work-wrap에서 스크롤 이벤트 처리
