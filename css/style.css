@@ -1549,15 +1549,7 @@ body {
   height: 2px;
   background-color: #599224;
 }
-#header:hover .header .header-top .call-wrap {
-  border-color: #599224;
-}
-#header:hover .header .header-top .call-wrap a i {
-  color: #202020;
-}
-#header:hover .header .header-top .call-wrap a .num {
-  color: #202020;
-}
+
 
 .header .header-top {
   width: 100%;
@@ -1624,6 +1616,7 @@ body {
   padding: 12px 0;
   border: 1px solid #fff;
   border-radius: 22px;
+  visibility: hidden;
 }
 .header .header-top .call-wrap a {
   display: flex;

@@ -73,7 +73,7 @@
     <div class="call-wrap">
       <a href="tel:1800-7432" class="call-number">
         <i class="xi-call"></i>
-        <p class="num font-pr">1800-7432</p>
+        <!-- <p class="num font-pr">1800-7432</p> -->
       </a>
     </div>
 
@@ -209,15 +209,15 @@
       const headerLogo = document.querySelector(
         ".header .header-top .com-img-wrap a img"
       );
-      const callContainer = document.querySelector(
-        ".header .header-top .call-wrap"
-      );
-      const callIcon = document.querySelector(
-        ".header .header-top .call-wrap a i"
-      );
-      const callText = document.querySelector(
-        ".header .header-top .call-wrap a .num"
-      );
+      // const callContainer = document.querySelector(
+      //   ".header .header-top .call-wrap"
+      // );
+      // const callIcon = document.querySelector(
+      //   ".header .header-top .call-wrap a i"
+      // );
+      // const callText = document.querySelector(
+      //   ".header .header-top .call-wrap a .num"
+      // );
       const header = document.getElementById("header");
       const mobileMenu = document.querySelector(
         ".header .header-top .mobile-header-btn .header-btn"
@@ -231,9 +231,9 @@
             el.style.color = ""; // 기본 색상으로 되돌리기
           });
           headerLogo.src = "../images/logo_wrap/logo_not_hover.png";
-          callContainer.style.borderColor = "";
-          callIcon.style.color = "";
-          callText.style.color = "";
+          // callContainer.style.borderColor = "";
+          // callIcon.style.color = "";
+          // callText.style.color = "";
           header.style.backgroundColor = "";
           mobileMenu.style.filter = "";
 
@@ -248,9 +248,9 @@
             el.style.color = "#202020"; // 특정 색상으로 변경
           });
           headerLogo.src = "../images/logo_wrap/logo_hover.png";
-          callContainer.style.borderColor = "#5fc700";
-          callIcon.style.color = "#202020";
-          callText.style.color = "#202020";
+          // callContainer.style.borderColor = "#5fc700";
+          // callIcon.style.color = "#202020";
+          // callText.style.color = "#202020";
           mobileMenu.style.filter = "invert(100%)";
           header.style.backgroundColor = "#fff";
           header.addEventListener("mouseover", () => {

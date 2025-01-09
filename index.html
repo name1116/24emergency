@@ -886,15 +886,15 @@
       const headerLogo = document.querySelector(
         ".header .header-top .com-img-wrap a img"
       );
-      const callContainer = document.querySelector(
-        ".header .header-top .call-wrap"
-      );
-      const callIcon = document.querySelector(
-        ".header .header-top .call-wrap a i"
-      );
-      const callText = document.querySelector(
-        ".header .header-top .call-wrap a .num"
-      );
+      // const callContainer = document.querySelector(
+      //   ".header .header-top .call-wrap"
+      // );
+      // const callIcon = document.querySelector(
+      //   ".header .header-top .call-wrap a i"
+      // );
+      // const callText = document.querySelector(
+      //   ".header .header-top .call-wrap a .num"
+      // );
       const header = document.getElementById("header");
       const headerBody = document.querySelector(".header-top");
 
@@ -907,9 +907,9 @@
             el.style.color = ""; // 기본 색상으로 되돌리기
           });
           headerLogo.src = "../images/logo_wrap/logo_not_hover.png";
-          callContainer.style.borderColor = "";
-          callIcon.style.color = "";
-          callText.style.color = "";
+          // callContainer.style.borderColor = "";
+          // callIcon.style.color = "";
+          // callText.style.color = "";
 
           header.addEventListener("mouseover", () => {
             headerLogo.src = "../images/logo_wrap/logo_hover.png";
@@ -922,9 +922,9 @@
             el.style.color = "#202020"; // 특정 색상으로 변경
           });
           headerLogo.src = "../images/logo_wrap/logo_hover.png";
-          callContainer.style.borderColor = "#5fc700";
-          callIcon.style.color = "#202020";
-          callText.style.color = "#202020";
+          // callContainer.style.borderColor = "#5fc700";
+          // callIcon.style.color = "#202020";
+          // callText.style.color = "#202020";
 
           header.addEventListener("mouseover", () => {
             headerLogo.src = "../images/logo_wrap/logo_hover.png";

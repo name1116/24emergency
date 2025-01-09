@@ -112,10 +112,10 @@
 </style>
 
 <button class="sns-open">
-  <i class="xi-bars"></i>
+  <i class="xi-close"></i>
 </button>
 
-<div id="sns-btn-wrap" class="sns-btn-wrap disable">
+<div id="sns-btn-wrap" class="sns-btn-wrap active">
   <a href="tel:02-302-0129" target="_blank">
     <button class="sns-btn call">
       <i class="xi-call"></i>
@@ -174,9 +174,9 @@
 
   window.addEventListener("load", () => {
     if (window.innerWidth <= 767) {
-      toggleBtn.style.bottom = "92px";
+      toggleBtn.style.bottom = "248px";
     } else {
-      toggleBtn.style.bottom = "112px";
+      toggleBtn.style.bottom = "240px";
     }
   });
   window.addEventListener("resize", () => {
