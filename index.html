@@ -849,30 +849,30 @@
       }
     });
 
-    const gallerySlide = document.querySelector(".swiper-slide.gallery");
+    // const gallerySlide = document.querySelector(".swiper-slide.gallery");
 
-    gallerySlide.addEventListener("mouseenter", () => {
-      mainSwiper.mousewheel.disable(); // 내부에 진입 시 Swiper 비활성화
-    });
+    // gallerySlide.addEventListener("mouseenter", () => {
+    //   mainSwiper.mousewheel.disable(); // 내부에 진입 시 Swiper 비활성화
+    // });
 
-    gallerySlide.addEventListener("mouseleave", () => {
-      mainSwiper.mousewheel.enable(); // 외부로 나가면 Swiper 활성화
-    });
+    // gallerySlide.addEventListener("mouseleave", () => {
+    //   mainSwiper.mousewheel.enable(); // 외부로 나가면 Swiper 활성화
+    // });
 
-    gallerySlide.addEventListener("wheel", (e) => {
-      const { scrollTop, scrollHeight, clientHeight } = gallerySlide;
-      const isAtTop = scrollTop === 0 && e.deltaY < 0;
-      const isAtBottom =
-        scrollTop + clientHeight >= scrollHeight && e.deltaY > 0;
+    // gallerySlide.addEventListener("wheel", (e) => {
+    //   const { scrollTop, scrollHeight, clientHeight } = gallerySlide;
+    //   const isAtTop = scrollTop === 0 && e.deltaY < 0;
+    //   const isAtBottom =
+    //     scrollTop + clientHeight >= scrollHeight && e.deltaY > 0;
 
-      if (!isAtTop && !isAtBottom) {
-        // 슬라이드 내부에서 스크롤 가능하도록 이벤트 중지
-        e.stopPropagation();
-      } else {
-        // 위/아래 끝에 도달했을 경우 Swiper로 이벤트 전달
-        mainSwiper.mousewheel.enable();
-      }
-    });
+    //   if (!isAtTop && !isAtBottom) {
+    //     // 슬라이드 내부에서 스크롤 가능하도록 이벤트 중지
+    //     e.stopPropagation();
+    //   } else {
+    //     // 위/아래 끝에 도달했을 경우 Swiper로 이벤트 전달
+    //     mainSwiper.mousewheel.enable();
+    //   }
+    // });
 
     function slideToFirst() {
       mainSwiper.slideTo(0, 1000, false);
