@@ -9,6 +9,7 @@ $(document).ready(function(){
     $('#contact_menu').load('../components/contact_menu.html');
 })
 
+
 /*smooth-scroll*/
 // gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
